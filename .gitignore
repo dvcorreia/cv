@@ -1,5 +1,8 @@
-## Project specific
+## Project specific:
 samples/**/*.pdf
+
+## OS files:
+.DS_Store
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
