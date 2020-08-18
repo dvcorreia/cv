@@ -411,7 +411,13 @@
 \newcommand{\addnextpagesidebar}[2][]{\afterpage{\addsidebar[#1]{#2}}}
 
 \AtBeginDocument{%
-  \pagestyle{empty}
+  \RequirePackage{fancyhdr}
+  \pagestyle{fancy}
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+  \pagenumbering{roman}
+  \fancyfoot[R]{\thepage}
+  %\pagestyle{empty}
   \color{body}
   \raggedright
 }
