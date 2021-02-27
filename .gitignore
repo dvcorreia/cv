@@ -1,6 +1,7 @@
 ## Project specific:
 samples/**/*.pdf
 main.pdf
+letters/**/*.pdf
 
 ## OS files:
 .DS_Store
