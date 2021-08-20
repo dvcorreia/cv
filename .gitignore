@@ -6,6 +6,9 @@ letters/**/*.pdf
 ## OS files:
 .DS_Store
 
+## IDE
+.vscode
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
