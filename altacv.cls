@@ -419,7 +419,8 @@
   \pagestyle{fancy}
   \fancyhf{}
   \renewcommand{\headrulewidth}{0pt}
-  \pagenumbering{roman}
+  %\pagenumbering{roman}
+  \pagenumbering{gobble} % remove page numbering
   \fancyfoot[R]{\thepage}
   %\pagestyle{empty}
   \color{body}
