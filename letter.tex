@@ -1,0 +1,53 @@
+%\title{Example letter using the newlfm LaTeX package}
+%
+% See http://texblog.org/2013/11/11/latexs-alternative-letter-class-newlfm/
+% and http://www.ctan.org/tex-archive/macros/latex/contrib/newlfm
+% for more information.
+%
+\documentclass[12pt,stdletter,orderfromtodate,sigleft]{newlfm}
+
+\usepackage{etoolbox}
+
+%% Patch from https://tex.stackexchange.com/a/395529/226 to address newlfm bug
+\makeatletter
+\patchcmd{\@zfancyhead}{\fancy@reset}{\f@nch@reset}{}{}
+\patchcmd{\@set@em@up}{\f@ncyolh}{\f@nch@olh}{}{}
+\patchcmd{\@set@em@up}{\f@ncyolh}{\f@nch@olh}{}{}
+\patchcmd{\@set@em@up}{\f@ncyorh}{\f@nch@orh}{}{}
+\makeatother
+
+\usepackage[rm]{roboto}
+\usepackage[defaultsans]{lato}
+\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage{blindtext, xfrac}
+ 
+\newlfmP{dateskipbefore=50pt}
+\newlfmP{sigsize=50pt}
+\newlfmP{sigskipbefore=50pt}
+ 
+\newlfmP{Headlinewd=0pt,Footlinewd=0pt}
+ 
+\namefrom{Diogo Correia}
+\addrfrom{%
+    221B Baker Street\\
+    London, UK
+}
+ 
+\addrto{%
+    Basil of Baker Street\\
+    221$\sfrac{1}{2}$ Baker Street\\
+    London, UK
+}
+ 
+\dateset{April 17, 2022}
+ 
+\greetto{To Whom It May Concern,}
+ 
+\closeline{Sincerely,}
+ 
+\begin{document}
+\begin{newlfm}
+\blindtext
+\end{newlfm}
+\end{document}
