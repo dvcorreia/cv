@@ -1,6 +1,7 @@
 ## Project specific:
 samples/**/*.pdf
 main.pdf
+letter.pdf
 letters/**/*.pdf
 
 ## OS files:
