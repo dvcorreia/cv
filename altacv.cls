@@ -315,7 +315,7 @@
   \ifstrequal{#2}{}{}{
   \textbf{\color{accent}#2}
   \smallskip}
-  \ifstrequal{#3}{}{}{{\hfill\small\faCalendar~#3}}%
+  \ifstrequal{#3}{}{}{{\hfill\makebox[0.33\linewidth][l]{\small~#3}}}%
   % \ifstrequal{#4}{}{}{{\small\makebox[0.5\linewidth][l]{\faMapMarker~#4}}}\par
   \medskip\normalsize
 }
