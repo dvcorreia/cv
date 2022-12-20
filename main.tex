@@ -28,6 +28,10 @@
 %% and packages.
 %% See http://texdoc.net/pkg/fontawesome5 and http://texdoc.net/pkg/academicons for full list of symbols. You MUST compile with XeLaTeX or LuaLaTeX if you want to use academicons.
 
+% Tikz stuff
+\usepackage{tikz}
+\usetikzlibrary{backgrounds}
+
 % Change the page layout if you need to
 \geometry{left=1.25cm,right=1.25cm,top=1.5cm,bottom=1.5cm,columnsep=1.2cm}
 
@@ -146,14 +150,12 @@
 
 \cvsection{Work Experience}
 
-\centerline{
-  Work at \emph{\href{https://www.wavecom.com/}{Wavecom Technologies}}
-}
+\medskip
 
-% \cvevent{
-%   \emph{\href{https://www.wavecom.com/}{Wavecom Technologies}}
-%   \hfill{\small\printinfo{\color{body}\faMapMarker}{Aveiro, Portugal}}
-% }{}{}{}
+\tikzstyle{background rectangle}=[thick,draw=black,dashed]
+\begin{tikzpicture}[show background rectangle]
+
+\node[align=justify, text width=0.5\textwidth, inner sep=1em]{
 
 \cvevent{}{Software Product Architect}{May 2022 -- Present}{Aveiro, Portugal}
 \begin{itemize}
@@ -169,6 +171,15 @@
   \item Maintain and modernize software development life cycle tools and \textit{codebases} to improve team agility
   \item Lead a developer advocacy internal initiative to technically accelerate the company and promote innovation
 \end{itemize}
+};
+
+\node[xshift=3ex, yshift=-0.7ex, overlay, fill=white, draw=white, above 
+right] at (current bounding box.north west) {
+@~\emph{\href{https://www.wavecom.com/}{Wavecom Technologies}}
+};
+
+\end{tikzpicture} 
+
 
 \cvsection{Volunteer Experience}
 
