@@ -44,6 +44,9 @@
 \RequirePackage{scrlfile}
 \RequirePackage{xparse}
 
+% To add margin to text
+\RequirePackage{scrextend}
+
 %% v1.1.5: added for convenience
 \newif\ifxetexorluatex
 \ifxetex
@@ -302,9 +305,30 @@
   \textbf{\color{accent}#2}\par
   \smallskip}
   \ifstrequal{#3}{}{}{{\small\makebox[0.5\linewidth][l]{\faCalendar~#3}}}%
-  \ifstrequal{#4}{}{}{{\small\makebox[0.5\linewidth][l]{\faMapMarker~#4}}}\par
+  % \ifstrequal{#4}{}{}{{\small\makebox[0.5\linewidth][l]{\faMapMarker~#4}}}\par
   \medskip\normalsize
 }
+
+\newcommand{\cvcompanyevententry}[4]{%
+  {\large\color{emphasis}#1\par}
+  \smallskip\normalsize
+  \ifstrequal{#2}{}{}{
+  \textbf{\color{accent}#2}
+  \smallskip}
+  \ifstrequal{#3}{}{}{{\hfill\small\faCalendar~#3}}%
+  % \ifstrequal{#4}{}{}{{\small\makebox[0.5\linewidth][l]{\faMapMarker~#4}}}\par
+  \medskip\normalsize
+}
+
+\newcommand{\cvcompanyevent}[3]{%
+{\large\color{emphasis}\textbf{\emph{#1}}\par}
+\small\faMapMarker~#2\par
+\normalsize
+\smallskip\normalsize
+\begin{addmargin}[0.75em]{0em}#3\end{addmargin}
+\medskip\normalsize
+}
+
 
 \newcommand{\cvachievement}[3]{%
   \begin{tabularx}{\linewidth}{@{}p{2em} @{\hspace{1ex}} >{\raggedright\arraybackslash}X@{}}
