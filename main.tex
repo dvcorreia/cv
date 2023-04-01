@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%
 % This is an sample CV template created using altacv.cls
-% (v1.3, 10 May 2020) written by LianTze Lim (liantze@gmail.com). Now compiles with pdfLaTeX, XeLaTeX and LuaLaTeX.
+% (v1.6.5, 3 Nov 2022) written by LianTze Lim (liantze@gmail.com). Compiles with pdfLaTeX, XeLaTeX and LuaLaTeX.
 %
 %% It may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3
@@ -11,22 +11,12 @@
 %% version 2003/12/01 or later.
 %%%%%%%%%%%%%%%%
 
-%% If you need to pass whatever options to xcolor
-\PassOptionsToPackage{dvipsnames}{xcolor}
-
-%% If you are using \orcid or academicons
-%% icons, make sure you have the academicons
-%% option here, and compile with XeLaTeX
-%% or LuaLaTeX.
-% \documentclass[10pt,a4paper,academicons]{altacv}
-
 %% Use the "normalphoto" option if you want a normal photo instead of cropped to a circle
 % \documentclass[10pt,a4paper,normalphoto]{altacv}
 
-\documentclass[9pt,a4paper,ragged2e,withhyper]{altacv}
-%% AltaCV uses the fontawesome5 and academicons fonts
-%% and packages.
-%% See http://texdoc.net/pkg/fontawesome5 and http://texdoc.net/pkg/academicons for full list of symbols. You MUST compile with XeLaTeX or LuaLaTeX if you want to use academicons.
+\documentclass[10pt,a4paper,ragged2e,withhyper]{altacv}
+%% AltaCV uses the fontawesome5 and packages.
+%% See http://texdoc.net/pkg/fontawesome5 for full list of symbols.
 
 % Change the page layout if you need to
 \geometry{left=1.25cm,right=1.25cm,top=1.5cm,bottom=1.5cm,columnsep=1.2cm}
@@ -49,37 +39,47 @@
   \renewcommand{\familydefault}{\sfdefault}
 \fi
 
-% green theme
-% \definecolor{Name}{HTML}{2A4747}
-% \definecolor{Tagline}{HTML}{52CB8B}
-% \definecolor{Heading}{HTML}{0D0106}
-% \definecolor{HeadingRule}{HTML}{0D0106}
-% \definecolor{Subheading}{HTML}{40B57A}
-% \definecolor{Accent}{HTML}{52CB8B}
-% \definecolor{Emphasis}{HTML}{2A4747}
-% \definecolor{Body}{HTML}{000000}
+% Change the colours if you want to
+% \definecolor{SlateGrey}{HTML}{2E2E2E}
+% \definecolor{LightGrey}{HTML}{666666}
+% \definecolor{DarkPastelRed}{HTML}{450808}
+% \definecolor{PastelRed}{HTML}{8F0D0D}
+% \definecolor{GoldenEarth}{HTML}{E7D192}
 
-% blue theme
-% \definecolor{Name}{HTML}{2B4570}
-% \definecolor{Tagline}{HTML}{091540}
-% \definecolor{Heading}{HTML}{091540}
-% \definecolor{HeadingRule}{HTML}{091540}
-% \definecolor{Subheading}{HTML}{091540}
-% \definecolor{Accent}{HTML}{1B2CC1}
-% \definecolor{Emphasis}{HTML}{091540}
-% \definecolor{Body}{HTML}{000000}
+% \definecolor{GithubDarkGrey}{HTML}{24292f}
+% \definecolor{GithubMediumGrey}{HTML}{57606a}
+% \definecolor{GithubLigthGrey}{HTML}{d0d7de}
+% \definecolor{GithubTextGrey}{HTML}{24292f}
+
+% \colorlet{name}{black}
+% \colorlet{tagline}{GithubTextGrey}
+% \colorlet{heading}{GithubDarkGrey}
+% \colorlet{headingrule}{GithubLigthGrey}
+% \colorlet{subheading}{PastelRed}
+% \colorlet{accent}{GithubDarkGrey}
+% \colorlet{emphasis}{SlateGrey}
+% \colorlet{body}{GithubTextGrey}
+
+% B83108,23120A,293138,2B2718,060709
+% from photo2
+\definecolor{Name}{HTML}{23120A}
+\definecolor{Tagline}{HTML}{293138}
+\definecolor{Heading}{HTML}{060709}
+\definecolor{HeadingRule}{HTML}{060709}
+\definecolor{Subheading}{HTML}{060709}
+\definecolor{Accent}{HTML}{B83108}
+\definecolor{Emphasis}{HTML}{2B2718}
+\definecolor{Body}{HTML}{060709}
 
 % dark surf green
-\definecolor{Name}{HTML}{000000}
-\definecolor{Tagline}{HTML}{52796F}
-\definecolor{Heading}{HTML}{2F3E46}
-\definecolor{HeadingRule}{HTML}{2F3E46}
-\definecolor{Subheading}{HTML}{2F3E46}
-\definecolor{Accent}{HTML}{52796F}
-\definecolor{Emphasis}{HTML}{354F52}
-\definecolor{Body}{HTML}{000000}
-
-% -----------------------------------
+% \definecolor{Name}{HTML}{000000}
+% \definecolor{Tagline}{HTML}{52796F}
+% \definecolor{Heading}{HTML}{2F3E46}
+% \definecolor{HeadingRule}{HTML}{2F3E46}
+% \definecolor{Subheading}{HTML}{2F3E46}
+% \definecolor{Accent}{HTML}{52796F}
+% \definecolor{Emphasis}{HTML}{354F52}
+% \definecolor{Body}{HTML}{000000}
 
 \colorlet{name}{Name}
 \colorlet{tagline}{Tagline}
@@ -102,40 +102,62 @@
 \renewcommand{\itemmarker}{{\small\textbullet}}
 \renewcommand{\ratingmarker}{\faCircle}
 
-%% sample.bib contains your publications
+%% Use (and optionally edit if necessary) this .tex if you
+%% want to use an author-year reference style like APA(6)
+%% for your publication list
+% \input{pubs-authoryear.cfg}
+
+%% Use (and optionally edit if necessary) this .tex if you
+%% want an originally numerical reference style like IEEE
+%% for your publication list
+\input{pubs-num.cfg}
+
+%% main.bib contains your publications
 \addbibresource{main.bib}
 
 \begin{document}
 \name{Diogo Vala Correia}
-\tagline{\faRocket~System Architect~/~Software Engineer}
+% \tagline{\normalsize\faRocket\large~Software engineer pushing products foward}
+\tagline{}
 %% You can add multiple photos on the left or right
-\photoR{3cm}{photo2}
+\photoR{2.8cm}{photo3}
+% \photoL{2.5cm}{Yacht_High,Suitcase_High}
 
 \personalinfo{%
   % Not all of these are required!
   \email{dv_correia@hotmail.com}
+  \email{dv.correia@ua.pt}
   \phone{+351 915800676}
-  %\mailaddress{Aveiro, Rua S Martinho 61, 3810-185 Aveiro}
+  % \mailaddress{Åddrésş, Street, 00000 Cóuntry}
   \location{Aveiro, Portugal}
-  \\
-  %\homepage{www.dvcorreia.com}
-  %\twitter{@twitterhandle}
+  \homepage{dvcorreia.com}
+  % \twitter{@twitterhandle}
   \linkedin{diogovalacorreia}
   \github{dvcorreia}
-  %% You MUST add the academicons option to \documentclass, then compile with LuaLaTeX or XeLaTeX, if you want to use \orcid or other academicons commands.
   % \orcid{0000-0000-0000-0000}
   %% You can add your own arbitrary detail with
-  % \printinfo{symbol}{detail}[optional hyperlink prefix]
+  %% \printinfo{symbol}{detail}[optional hyperlink prefix]
   % \printinfo{\faPaw}{Hey ho!}[https://example.com/]
   %% Or you can declare your own field with
   %% \NewInfoFiled{fieldname}{symbol}[optional hyperlink prefix] and use it:
-  % \NewInfoField{gitlab}{\faGitlab}[https://gitlab.com/]
-  % \gitlab{your_id}
+  \NewInfoField{gitlab}{\faGitlab}[https://gitlab.com/]
+  \gitlab{dvcorreia}
+  %%
+  %% For services and platforms like Mastodon where there isn't a
+  %% straightforward relation between the user ID/nickname and the hyperlink,
+  %% you can use \printinfo directly e.g.
+  % \printinfo{\faMastodon}{@username@instace}[https://instance.url/@username]
+  %% But if you absolutely want to create new dedicated info fields for
+  %% such platforms, then use \NewInfoField* with a star:
+  % \NewInfoField*{mastodon}{\faMastodon}
+  %% then you can use \mastodon, with TWO arguments where the 2nd argument is
+  %% the full hyperlink.
+  % \mastodon{@username@instance}{https://instance.url/@username}
 }
 
 \makecvheader
 %% Depending on your tastes, you may want to make fonts of itemize environments slightly smaller
-%\AtBeginEnvironment{itemize}{\small}
+% \AtBeginEnvironment{itemize}{\small}
 
 %% Set the left/right column width ratio to 6:4.
 \columnratio{0.6}
@@ -143,86 +165,164 @@
 % Start a 2-column paracol. Both the left and right columns will automatically
 % break across pages if things get too long.
 \begin{paracol}{2}
+\cvsection{Experience}
 
-\cvsection{Work Experience}
+\cvevent{Product Technical Lead}{\href{https://www.wavecom.com/}{Wavecom Technologies}}{Dec 2022 -- Ongoing}{Aveiro, Portugal}
 
-\cvevent{Software Engineer}{\href{https://www.wavecom.com/}{Wavecom}}{Apr 2021 -- Present}{Aveiro, Portugal}
+Oversee the technical direction and vision for the real-time location systems (\textit{RTLS}) and radio frequency identification (\textit{RFID}) products.
+
+\medskip
+
 \begin{itemize}
-  \item Design, develop and deploy highly scalable distributed services written in \texttt{go} and \texttt{python}, to connect, process and manage thousands of real-time location system (\textit{RTLS}) devices, based on \textit{BLE} and \textit{UWB} technologies
-  \item Work on \textit{UHF RFID} software solutions to improve client logistics and shop floor activities
-  \item Maintain and modernize software development life cycle tools and \textit{codebases} to improve team agility
-  \item Lead a developer advocacy internal initiative to technically accelerate the company and promote innovation
-  \item Member of the \href{https://www.profibus.com/technology/omlox}{\textit{Profibus \& Profinet International}} working on the \href{https://omlox.com/}{Omlox} Hub \textit{RTLS} standardization effort
+\item Ensure cohesion and quality over the lifecycle of the product and infuse engineering best practices throughout the team
+\item Hands-on active involvement in the product software development process
 \end{itemize}
-
-\cvsection{Volunteer Experience}
-
-\cvevent{Electronics \& Electrical Powertrain}{\href{http://engeniusteam.web.ua.pt}{Engenius - UA Formula Student}}{Oct 2018 -- Sep 2019}{Aveiro, Portugal}
-\begin{itemize}
-  \item Worked on a platform to process, store and display real-time data generated by the car internal systems
-  \item Projected the electrical distribution system for the Phoenix Combustion car: cabling, distribution, connectors and redundant fail-safe systems for both power and CAN bus
-  \item Maintained the embedded systems pipeline tools and the \LaTeX \linebreak \href{https://github.com/engeniusua/engenius-ua-latex-template}{document templates}
-\end{itemize}
-
-\cvsection{Education}
-
-\cvevent{\href{https://www.ua.pt/en/curso/27}{B.Sc. \& M.Sc.\ in Electronics and Telecom Engineering}}{Universidade de Aveiro}{Sep 2014 -- Feb 2021}{Aveiro, Portugal}
-
-Dissertation title \href{https://github.com/dvcorreia/epc-smart-shelve}{\textit{"EPCGlobal Architecture: Smart Shelf Implementation for Retail Inventory Management"}}
 
 \divider
 
-\cvevent{Exange Student}{Politecnico di Torino}{Sep 2018 -- Jul 2019}{Torino, Italy}
+\smallskip
 
-Integrated the Telecommunications Engineering masters' degree in the area of \textit{Information and Communication Technologies for Smart Societies}: focus on automotive, IoT applications, statistical learning and neural networks.
+\cvevent{Software Product Architect}{\href{https://www.wavecom.com/}{Wavecom Technologies}}{May 2022 -- Dec 2022}{Aveiro, Portugal}
+
+Elevated the real-time location systems (RTLS) proof of concepts into a successful 1st commercial product.
+
+\medskip
+
+\begin{itemize}
+  \item Served as the lead developer and provided technical solutions for the product
+  \item Contributed to the team across all stages of the product lifecycle: defining the product requirements, designing its features, ensuring its usability, integrating it with other systems, and defining its overall architecture
+  \item Successfully executed the deployment of one of Europe's largest real-time locating system (\textit{RTLS}) projects for Continental AG's manufacturing group, encompassing over 1500 ultra-wideband (UWB) tags
+  \item Working in the \textit{RTLS} standardization effort with the \href{https://omlox.com/}{Omlox™} consortium, part of the \href{https://www.profibus.com/technology/omlox}{\textit{Profibus \& Profinet International}}
+  \item Spearheading a developer advocacy initiative to boost the company's technical excellence, foster innovation, and mentor recent college graduates
+\end{itemize}
+
+\divider
+
+\medskip
+
+\cvevent{Software Engineer}{\href{https://www.wavecom.com/}{Wavecom Technologies}}{Apr 2021 -- May 2022}{Aveiro, Portugal}
+
+Worked on real-time location systems (\textit{RTLS}) and radio identification product offerings for industry and healthcare.
+
+\medskip
+
+\begin{itemize}
+  \item Developed software to connect, process and manage thousands of BLE and UWB devices
+  \item Worked on UHF RFID software solutions to improve client logistics and shop floor operations
+  \item Introduced modern software development life cycle tools and developed a set codebases that resulted in improved technical quality, reduced bugs and development agility
+\end{itemize}
+
+
+% \cvsection{Projects}
+
+% \cvevent{Project 1}{Funding agency/institution}{}{}
+% \begin{itemize}
+% \item Details
+% \end{itemize}
+
+% \divider
+
+% \cvevent{Project 2}{Funding agency/institution}{Project duration}{}
+% A short abstract would also work.
+
+% \medskip
+
+% \cvsection{A Day of My Life}
+
+% % Adapted from @Jake's answer from http://tex.stackexchange.com/a/82729/226
+% % \wheelchart{outer radius}{inner radius}{
+% % comma-separated list of value/text width/color/detail}
+% \wheelchart{1.5cm}{0.5cm}{%
+%   6/8em/accent!30/{Sleep,\\beautiful sleep},
+%   3/8em/accent!40/Hopeful novelist by night,
+%   8/8em/accent!60/Daytime job,
+%   2/10em/accent/Sports and relaxation,
+%   5/6em/accent!20/Spending time with family
+% }
+
+% use ONLY \newpage if you want to force a page break for
+% ONLY the current column
+% \newpage
+
+% \cvsection{Publications}
+
+% %% Specify your last name(s) and first name(s) as given in the .bib to automatically bold your own name in the publications list.
+% %% One caveat: You need to write \bibnamedelima where there's a space in your name for this to work properly; or write \bibnamedelimi if you use initials in the .bib
+% %% You can specify multiple names, especially if you have changed your name or if you need to highlight multiple authors.
+% \mynames{Lim/Lian\bibnamedelima Tze,
+%   Wong/Lian\bibnamedelima Tze,
+%   Lim/Tracy,
+%   Lim/L.\bibnamedelimi T.}
+% %% MAKE SURE THERE IS NO SPACE AFTER THE FINAL NAME IN YOUR \mynames LIST
+
+% \nocite{*}
+
+% \printbibliography[heading=pubtype,title={\printinfo{\faBook}{Books}},type=book]
+
+% \divider
+
+% \printbibliography[heading=pubtype,title={\printinfo{\faFile*[regular]}{Journal Articles}},type=article]
+
+% \divider
+
+% \printbibliography[heading=pubtype,title={\printinfo{\faUsers}{Conference Proceedings}},type=inproceedings]
 
 %% Switch to the right column. This will now automatically move to the second
 %% page if the content is too long.
 \switchcolumn
 
-\iffalse
-\cvsection{Work Philosophy}
+% \cvsection{My Life Philosophy}
 
-As engineers, we must prioritize solutions based on product profitability. 
-But at its core, increasing profitability is a concept we often don't grasp properly. 
-One should rarely compromise quality. Optimize work methodologies, be flexible in technology choices, avoid technological holes, wager on open-source, and most important, market clear product motifs. 
-We must design products that are used, not useful. 
-Engineers devise solutions to problems, so we should avoid creating more while doing so.
-\fi
+% \begin{quote}
+% ``Something smart or heartfelt, preferably in one sentence.''
+% \end{quote}
 
-\cvsection{Career Interests}
+\cvsection{Education}
 
-\cvachievement{\faConnectdevelop}{System Design}{defining the architecture, modules, interfaces, and data for a system to satisfy specified requirements}
+\cveventnobold{B.S. and M.S. in \href{https://www.ua.pt/en/curso/27}{Electronics and \\ Telecommunications Engineering}}{\href{https://www.ua.pt/}{Universidade de Aveiro}}{}{}
+Dissertation title: \href{https://github.com/dvcorreia/epc-smart-shelve}{\textit{"EPCGlobal Architecture: Smart Shelf Implementation for Retail Inventory Management"}}
 
-\cvachievement{\faCloud}{Cloud}{web services, blockchain, fintech and machine learning services}
+\divider
 
-% \cvachievement{\faMicrochip}{Hardware Systems}{firmware, DSP, FPGAs, ASICs and hardware design}
+\cveventnobold{Exchange Student}{\href{https://www.polito.it/}{Politecnico di Torino}}{}{}
+\href{https://www.polito.it/en/education/master-s-degree-programmes/ict-for-smart-societies}{\textit{Information and Communication Technologies for Smart Societies}}: focus on automotive, IoT applications and machine learning.
 
-\cvachievement{\faWifi}{Internet of Things (IoT)}{from embedded systems to cloud, RAIN RFID, machine learning and big data}
+\medskip
+
+% \cvsection{Most Proud of}
+
+% \smallskip
+
+% \cvachievement{\faHeartbeat}{Being creative}{comming up with new product ideias and designing features}
+
+% \divider
+
+% \cvachievement{\faTrophy}{Successful deployments}{both in Continental AG and Vidrala, where stakes were high}
+
+% \divider
+
+% \cvachievement{\faHeartbeat}{Another achievement}{more details about it of course}
 
 \cvsection{Skills \& Tools}
 
 \cvtag{\href{https://go.dev/}{Golang}}
 \cvtag{\href{https://www.python.org/}{Python}}
-\cvtag{Java}
-\cvtag{\href{https://reactjs.org/}{ReactJS}}
+\cvtag{React JS}
 
-\divider
+\divider\smallskip
 
-\cvtag{Docker}
-\cvtag{Podman}
 \cvtag{Kubernetes}
-\cvtag{Git}
-\cvtag{KiCad}
-\cvtag{Helm}
+\cvtag{Podman / Docker}
 
-\medskip
 
 \cvsection{Languages}
 
-\cvskill{Portuguese (Native)}{5} 
-\cvskill{English (C1)}{4}
+\cvskill{Portuguese~(Native)}{5}
+\cvskill{English~(C1)}{4.3} %% Supports X.5 values.
 
+%% Yeah I didn't spend too much time making all the
+%% spacing consistent... sorry. Use \smallskip, \medskip,
+%% \bigskip, \vspace etc to make adjustments.
 \medskip
 
 \cvsection{Hobbies \& Interests}
@@ -242,19 +342,15 @@ Engineers devise solutions to problems, so we should avoid creating more while d
 \cvtag{Cinematography}
 \cvtag{Tennis}
 
-%% Yeah I didn't spend too much time making all the
-%% spacing consistent... sorry. Use \smallskip, \medskip,
-%% \bigskip, \vpsace etc to make ajustments.
-%% \medskip
-
-
-% \divider
+\medskip
 
 \cvsection{Referees}
 
 % \cvref{name}{email}{mailing address}
-\cvref{Prof.\ José Alberto Fonseca}{\href{https://www.it.pt/Members/Index/4153}{IT Aveiro} / \href{https://microio.pt}{MicroIO}}{\href{mailto:jaf@ua.pt}{jaf@ua.pt}}
-{}
+% \divider
+
+\cvref{Prof.\ José Alberto Fonseca}{\href{https://www.it.pt/Members/Index/4153}{IT Aveiro} / \href{https://microio.pt}{MicroIO}}{\href{mailto:jaf@ua.pt}{jaf@ua.pt}}{}
 
 \end{paracol}
+
 \end{document}
