@@ -1,0 +1,25 @@
+
+Software Product Architect
+Wavecom Technologies
+May 2022 -- Dec 2022
+Aveiro, Portugal
+
+Elevated the real-time location systems (RTLS) proof of concepts into a successful 1st commercial product.
+
+- Served as the lead developer and provided technical solutions for the product
+- Contributed to the team across all stages of the product lifecycle: defining the product requirements, designing its features, ensuring its usability, integrating it with other systems, and defining its overall architecture
+- Successfully executed the deployment of one of Europe's largest real-time locating system (RTLS) projects for Continental AG's manufacturing group, encompassing over 1500 ultra-wideband (UWB) tags
+- Working in the RTLS standardization effort with the Omlox™ consortium, part of the Profibus & Profinet International
+- Spearheading a developer advocacy initiative to boost the company's technical excellence, foster innovation, and mentor recent college graduates
+
+
+Software Engineer
+Wavecom Technologies
+Apr 2021 -- May 2022
+Aveiro, Portugal
+
+Worked on real-time location systems (RTLS) and radio identification product offerings for industry and healthcare.
+
+- Developed software to connect, process and manage thousands of BLE and UWB devices
+- Worked on UHF RFID software solutions to improve client logistics and shop floor operations
+- Introduced modern software development life cycle tools and developed a set codebases that resulted in improved technical quality, reduced bugs and development agility
