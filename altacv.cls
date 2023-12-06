@@ -302,6 +302,17 @@
   \medskip\normalsize
 }
 
+\newcommand{\cveventinline}[4]{%
+  {\color{emphasis}\textbf{#1}}
+  \smallskip\footnotesize\dotfill\normalsize
+  \ifstrequal{#2}{}{}{
+  {\color{accent}#2}\par
+  \smallskip}
+  \small\faCalendar~#3%
+  \hfill\small#4\par
+  \medskip\normalsize
+}
+
 \newcommand{\cvachievement}[3]{%
   \begin{tabularx}{\linewidth}{@{}p{2em} @{\hspace{1ex}} >{\raggedright\arraybackslash}X@{}}
   \multirow{2}{*}{\Large\color{accent}#1} & \bfseries\textcolor{emphasis}{#2}\\

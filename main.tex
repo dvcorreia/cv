@@ -24,6 +24,8 @@
 % The paracol package lets you typeset columns of text in parallel
 \usepackage{paracol}
 
+\usepackage{multicol}
+
 % Change the font if you want to, depending on whether
 % you're using pdflatex or xelatex/lualatex
 \ifxetexorluatex
@@ -295,9 +297,10 @@ Dissertation title: \href{https://github.com/dvcorreia/epc-smart-shelve}{\textit
 
 \smallskip
 
-\cvtag{\href{https://go.dev/}{Golang}}
+\cvtag{\href{https://go.dev/}{Go}}
 \cvtag{\href{https://www.python.org/}{Python}}
 \cvtag{\href{https://webassembly.org}{WebAssembly}}
+\cvtag{\href{https://nixos.org}{Nix}}
 
 \divider
 
@@ -305,23 +308,50 @@ Dissertation title: \href{https://github.com/dvcorreia/epc-smart-shelve}{\textit
 \cvtag{Podman / Docker}
 \cvtag{Helm}\\
 \smallskip
-\cvtag{\href{https://nixos.org}{Nix}}
+\cvtag{Javascript}
 \cvtag{React JS}
 \cvtag{PostgreSQL}
+
+\medskip
 
 \cvsection{Languages}
 
 \cvskill{Portuguese~(Native)}{5}
 \cvskill{English~(C1)}{4.3} %% Supports X.5 values.
 
-\medskip
-
 %% Yeah I didn't spend too much time making all the
 %% spacing consistent... sorry. Use \smallskip, \medskip,
 %% \bigskip, \vspace etc to make adjustments.
 % \smallskip
 
+\medskip
+
+\cvsection{Organizations}
+
+\smallskip
+
+\cveventinline{Vice President}{\href{http://hardwarecity.org/}{Hardware City}}{2023 - Present}{
+  \cvtag{Product Development}
+}
+
+\smallskip
+
+\cveventinline{Logistics}{\href{https://eestec.net/cities/aveiro}{EESTEC LC Aveiro}}{2019 -- 2020}{
+  \cvtag{Workshops}
+}
+
+\smallskip
+
+\cveventinline{Electric Powertrain}{\href{https://engeniusteam.web.ua.pt}{Engenius UA}}{2017 -- 2019}{
+  \cvtag{CAN~Bus}
+  \cvtag{BMS~Systems}
+}
+
+\medskip
+
 \cvsection{Hobbies \& Interests}
+
+\medskip
 
 \cvtag{Music Recording}
 \cvtag{Neurology}
@@ -331,15 +361,13 @@ Dissertation title: \href{https://github.com/dvcorreia/epc-smart-shelve}{\textit
 \cvtag{Cooking}
 \cvtag{Audio Electronics}\\
 \smallskip
-\cvtag{Audio Visuals}
+% \cvtag{Audio Visuals}
 \cvtag{Open-Source}
-\cvtag{Astronomy}\\
+\cvtag{Astronomy}
 \smallskip
-\cvtag{Physics}
+% \cvtag{Physics}
 \cvtag{Architecture}
-\cvtag{Cinematography}
-
-\smallskip
+% \cvtag{Cinematography}
 
 \cvsection{Referees}
 
