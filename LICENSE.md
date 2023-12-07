@@ -9,4 +9,5 @@ version 2005/12/01 or later.
 
 This work has the LPPL maintenance status `maintained'.
 
-The Current Maintainer of this work is LianTze Lim
+The Current Maintainer of the original work is LianTze Lim.
+Refer to https://github.com/liantze/AltaCV.
