@@ -104,9 +104,37 @@
   )
 }
 
+#let hrule = [
+  #line(length: 100%, stroke: (dash: "dashed", thickness: 0.6pt))
+]
+
 #let term(period, location) = {
   text(text_10.small)[#icon("calendar") #period #h(1fr) #icon("location-pin") #location]
 }
+
+#let experience(title: [], company: [], period: "", location: "", desc) = [
+  === #title \
+  #company \
+  #term(period, location)
+
+  #desc
+]
+
+#let tag(skill) = {
+  box(
+    stroke: none,
+    inset: (x: 0.1em, y: 0.3em),
+    box(
+      inset: (x: 0.4em),
+      outset: (y: 0.4em),
+      stroke: 0.3pt,
+      radius: 3pt,
+      skill,
+    )
+  )
+}
+
+
 
 #let cv(
   name: "",
