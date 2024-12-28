@@ -156,8 +156,6 @@
   )
 }
 
-
-
 #let cv(
   name: "",
   photo: "",
