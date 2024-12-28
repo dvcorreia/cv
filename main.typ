@@ -1,4 +1,4 @@
-#import "cv.typ": cv, term, experience, tag, hrule, space, text_10
+#import "cv.typ": cv, term, experience, education, tag, hrule, space, text_10
 #show: cv.with(
   name: "Diogo Vala Correia",
   photo: "me3.jpg",
@@ -65,20 +65,20 @@
 ][
   == Education
 
-  #experience(
-    title: [B.Sc. and M.Sc. #link("https://www.ua.pt/en/curso/27")[Electronics and Telecommunications Engineering]],
-    company: link("https://www.ua.pt")[Universidade de Aveiro],
-    period: "2014 --- 2020",
-    location: "Aveiro, Portugal",
-  )[]
-
-  #experience(
-    title: "Exchange Student",
-    company: link("https://www.polito.it/")[Politecnico di Torino],
-    period: "2018 --- 2019",
-    location: "Torino, Italy",
+  #education(
+    degree: [B.Sc. and M.Sc. in #link("https://www.ua.pt/en/curso/27")[Electronics and Telecommunications Engineering]],
+    institution: link("https://www.ua.pt")[Universidade de Aveiro],
+    period: "2014 - 2020"
   )[
-    #set text(size: text_10.small)
+    Dissertation title: "EPCGlobal Architecture:
+    Smart Shelf Implementation for Retail Inventory Management"
+  ]
+
+  #education(
+    degree: "Exchange Student",
+    institution: link("https://www.polito.it/")[Politecnico di Torino],
+    period: "2018 - 2019"
+  )[
     #link("https://www.polito.it/en/education/master-s-degree-programmes/ict-for-smart-societies")[Information and Communication Technologies for Smart Societies]: focus on automotive, IoT applications and machine learning.
   ]
 
@@ -88,14 +88,14 @@
   #tag[#link("https://www.python.org/")[Python]]
   #tag[#link("https://webassembly.org")[WebAssembly]]
   #tag[#link("https://nixos.org")[Nix]]
+  #tag[Typescript]
+  #tag[React JS]
 
   #line(length: 100%, stroke: (dash: "dashed", thickness: 0.6pt))
 
   #tag[Kubernetes]
   #tag[Podman / Docker]
   #tag[Helm]
-  #tag[Javascript]
-  #tag[React JS]
   #tag[PostgreSQL]
 
   == Languages
@@ -107,7 +107,7 @@
 
   === Vice President \
   #link("http://hardwarecity.org/")[Hardware City] \
-  #term[2023 - Ongoing][Portugal]
+  #tag[Product Development]
 
   === Logistics \
   #link("https://eestec.net/cities/aveiro")[EESTEC LC Aveiro] \

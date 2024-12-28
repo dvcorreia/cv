@@ -18,6 +18,17 @@
   big: 12pt,
 )
 
+#let colors = (
+  gray_950: rgb("#0a0a0a"),
+  gray_900: rgb("#171717"),
+  gray_800: rgb("#262626"),
+  gray_700: rgb("#404040"),
+  gray_600: rgb("#525252"),
+  gray_500: rgb("#737373"),
+  gray_400: rgb("#a3a3a3"),
+  gray_300: rgb("#d4d4d4"),
+)
+
 #let https(ref) = {
   "https://" + ref
 }
@@ -115,19 +126,30 @@
 #let experience(title: [], company: [], period: "", location: "", desc) = [
   === #title \
   #company \
-  #term(period, location)
+  #text(text_10.small)[#icon("calendar") #period #h(1fr) #icon("location-pin") #location]
 
   #desc
 ]
 
+#let education(degree: [], institution: [], period: "", desc) = [
+  ==== #degree \
+  #set text(size: text_10.small)
+  #icon("building-columns") #institution #h(1fr) #icon("calendar") #period
+
+  
+  #desc
+]
+
 #let tag(skill) = {
+  let stroke = 0.3pt + colors.gray_500
+  set text(stroke: stroke)
   box(
     stroke: none,
-    inset: (x: 0.1em, y: 0.3em),
+    inset: (right: 0.2em, y: 0.3em),
     box(
       inset: (x: 0.4em),
       outset: (y: 0.4em),
-      stroke: 0.3pt,
+      stroke: stroke,
       radius: 3pt,
       skill,
     )
