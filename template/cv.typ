@@ -1,5 +1,8 @@
 #import "lib.typ": *
 
+#let main_font = "Roboto Slab"
+#let sans_font = "Lato"
+
 #let _info(
   display,
   href: "",
@@ -124,10 +127,10 @@
   ),
   doc,
 ) = {
-  set text(text_10.normal, font: "Roboto Slab")
+  set text(text_10.normal, font: sans_font)
   set page(margin: (x: 1.25cm, y: 1.5cm))
 
-  show heading.where(level: 2): it => text(size: text_10.LARGE)[
+  show heading.where(level: 2): it => text(size: text_10.LARGE, font: main_font)[
     #upper(it.body)
     #v(-15pt)
     #line(length: 100%, stroke: 2pt)
@@ -135,6 +138,7 @@
 
   show heading.where(level: 3): it => text(
     size: text_10.large,
+    font: main_font,
     it.body,
   )
 
@@ -143,11 +147,11 @@
     stroke: none,
     inset: 0pt,
     {
-      text(text_10.Huge)[
+      text(text_10.Huge, font: main_font)[
         #upper[#strong(name)]
       ]
       block(spacing: 1.8em, _personal_info(..info))
-      v(space.huge)
+      v(space.big)
     },
     {
       if photo != none {
