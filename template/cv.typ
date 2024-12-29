@@ -1,3 +1,4 @@
+#import "chronology.typ": chronology
 #import "lib.typ": *
 
 #let _info(
@@ -63,16 +64,7 @@
 
 #let hrule = line(length: 100%, stroke: (dash: "dashed", thickness: 0.6pt))
 
-#let chronology(
-  company: none,
-  employment_type: "Full-time",
-  duration: "",
-  ..experiences
-) = {
-  experiences.pos().join(v(space.med))
-}
-
-#let experience(title: [], company: [], period: "", location: "", desc) = [
+#let experience(title: [], company: none, period: "", location: "", desc) = [
   === #title \
   #if company != none [#company \ ]
   #text(size: text_10.small)[
