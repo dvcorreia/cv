@@ -120,13 +120,17 @@
 ]
 
 #let term(period, location) = {
-  text(text_10.small)[#icon("calendar") #period #h(1fr) #icon("location-pin") #location]
+  text(
+    text_10.small,
+  )[#icon("calendar") #period #h(1fr) #icon("location-pin") #location]
 }
 
 #let experience(title: [], company: [], period: "", location: "", desc) = [
   === #title \
   #company \
-  #text(text_10.small)[#icon("calendar") #period #h(1fr) #icon("location-pin") #location]
+  #text(
+    text_10.small,
+  )[#icon("calendar") #period #h(1fr) #icon("location-pin") #location]
 
   #desc
 ]
@@ -136,7 +140,7 @@
   #set text(size: text_10.small)
   #icon("building-columns") #institution #h(1fr) #icon("calendar") #period
 
-  
+
   #desc
 ]
 
@@ -152,7 +156,7 @@
       stroke: stroke,
       radius: 3pt,
       skill,
-    )
+    ),
   )
 }
 
@@ -174,21 +178,15 @@
   set page(margin: (x: 1.25cm, y: 1.5cm))
   set list(marker: [•])
 
-  show heading.where(
-    level: 2
-  ): it => text(
-    size: text_10.LARGE
-  )[
+  show heading.where(level: 2): it => text(size: text_10.LARGE)[
     #upper(it.body)
     #v(-15pt)
     #line(length: 100%, stroke: 2pt)
   ]
 
-  show heading.where(
-    level: 3
-  ): it => text(
+  show heading.where(level: 3): it => text(
     size: text_10.large,
-    it.body
+    it.body,
   )
 
   // make header

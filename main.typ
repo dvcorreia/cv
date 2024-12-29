@@ -28,7 +28,7 @@
 
     - Developing solutions to serve high bandwidth medical images to web browser applications
     - Integrating AI solutions into our hosting products
-    - Colaborating on an authorization solution for client access to medical data 
+    - Colaborating on an authorization solution for client access to medical data
   ]
 
   #hrule
@@ -68,7 +68,7 @@
   #education(
     degree: [B.Sc. and M.Sc. in #link("https://www.ua.pt/en/curso/27")[Electronics and Telecommunications Engineering]],
     institution: link("https://www.ua.pt")[Universidade de Aveiro],
-    period: "2014 - 2020"
+    period: "2014 - 2020",
   )[
     Dissertation title: "EPCGlobal Architecture:
     Smart Shelf Implementation for Retail Inventory Management"
@@ -77,7 +77,7 @@
   #education(
     degree: "Exchange Student",
     institution: link("https://www.polito.it/")[Politecnico di Torino],
-    period: "2018 - 2019"
+    period: "2018 - 2019",
   )[
     #link("https://www.polito.it/en/education/master-s-degree-programmes/ict-for-smart-societies")[Information and Communication Technologies for Smart Societies]: focus on automotive, IoT applications and machine learning.
   ]
