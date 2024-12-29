@@ -34,6 +34,7 @@
         fontPaths = [
           # Add paths to fonts here
           "${pkgs.roboto-slab}/share/fonts/truetype"
+          "${pkgs.lato}/share/fonts/lato"
         ];
 
         virtualPaths = [
