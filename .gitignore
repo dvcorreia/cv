@@ -1,5 +1,5 @@
 # Files placed at build time
-dist*
+vendor*
 *.pdf
 
 # Nix

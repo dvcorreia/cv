@@ -39,11 +39,11 @@
         virtualPaths = [
           # Add paths that must be locally accessible to typst here
           {
-            dest = "dist/icons";
+            dest = "template/vendor/icons";
             src = "${inputs.font-awesome}/svgs";
           }
           {
-            dest = "dist/photos";
+            dest = "photos";
             src = ./photos;
           }
         ];
