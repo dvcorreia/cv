@@ -100,7 +100,7 @@
   #line(length: 100%, stroke: (dash: "dashed", thickness: 0.6pt))
 
   #tag(k8s)
-  #tag[#podman / #docker]
+  #tag[#docker / #podman]
   #tag(helm)
   #tag(posgres)
 
