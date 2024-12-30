@@ -39,6 +39,7 @@
 
 // terms
 #let rtls = sub(emph[RTLS])
+#let uhf = sub(emph[UHF])
 #let rfid = sub(emph[RFID])
 #let ble = sub(emph[BLE])
 #let uwb = sub(emph[UWB])

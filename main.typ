@@ -24,7 +24,10 @@
   #experience(
     title: "Software Engineer",
     company: metacell,
-    period: "Jun 2024 -- Ongoing",
+    period: (
+      start: datetime(day: 1, month: 6, year: 2024),
+      end: datetime.today(),
+    ),
     location: "Remote to Cambridge, US",
   )[
     Drive neuroscience further.
@@ -32,6 +35,8 @@
     - Developing solutions to serve high bandwidth medical images to web browser applications
     - Integrating AI solutions into our hosting products
     - Colaborating on an authorization solution for client access to medical data
+
+    #tag(python) #tag(typescript) #tag(k8s)
   ]
 
   #hrule
@@ -43,29 +48,38 @@
     #experience(
       title: "Product Technical Lead",
       company: wavecom,
-      period: "Dec 2022 -- Jun 2024",
+      period: (
+        start: datetime(day: 1, month: 12, year: 2022),
+        end: datetime(day: 1, month: 6, year: 2024),
+      ),
       location: "Aveiro, Portugal",
     )[
       Oversee the technical direction and vision for the real-time location systems (#rtls) products.
 
-      - Served as lead developer, providing technical solutions and contributing to the product across all stages of it's lifecycle
-      - Ensure cohesion and quality over the lifecycle of the product and infuse engineering best practices throughout the team
-      - Working in the #rtls standardization effort with the #omlox consortium, part of the #profibus
-      - Spearheaded a developer advocacy initiative to boost the company's technical excellence, foster innovation, and mentor recent college graduates
+      - Co-led an 8-person cross-functional Agile team, together with a Project Manager and a Product Owner
+      - Ensured cohesion and quality over the lifecycle of the product and infused engineering best practices throughout the team
+      - Worked in the #rtls standardization effort with the #omlox consortium, part of the #profibus
+      - Spearheaded company wide initiatives to boost technical excellence and foster innovation across the engineering team
+
+      #tag(go) #tag(reactjs) #tag(typescript) #tag(k8s)
     ]
   ][
     #experience(
       title: "Software Engineer",
       company: wavecom,
-      period: "Apr 2021 -- Dec 2022",
+      period: (
+        start: datetime(day: 1, month: 4, year: 2021),
+        end: datetime(day: 1, month: 12, year: 2022),
+      ),
       location: "Aveiro, Portugal",
     )[
-      Worked on real-time location systems (#rtls) and radio identification (#rfid) products for industry and healthcare.
+      Worked on real-time location systems (#rtls) and ultra-high frequency radio identification (#uhf #rfid) products for industry and healthcare.
 
-      - Developed software in #python and #go to connect, manage and process packets for thousands of #ble and #uwb devices
-      - Worked on UHF #rfid software solutions in #python and #java to improve client logistics and shop floor operations
-      - Successfully executed the deployment of one of Europe's largest real-time locating system (#rtls) projects for Continental AG's manufacturing group, encompassing over 1500 #uwb tags
-      - Introduced modern software development life cycle tools and developed a set codebases that resulted in improved technical quality, reduced bugs and development agility
+      - Transformed an initial prototype into a robust, production-grade platform, adaptable to any use case and capable of processing data from thousands of BLE and UWB devices
+      - Successfully executed one of Europe's largest #rtls projects, encompassing over 1500 #uwb tags at high refresh rates
+      - Introduced modern software development ideas which improved technical quality and reduced manual testing from 4 days to 30 min
+
+      #tag(go) #tag(python) #tag(java) #tag(k8s)
     ]
   ]
 ][

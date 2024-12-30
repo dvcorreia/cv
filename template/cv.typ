@@ -75,11 +75,51 @@
   experiences.pos().join(v(space.med))
 }
 
-#let experience(title: [], company: [], period: "", location: "", desc) = [
+#let _duration_to_text(duration) = {
+  let total_days = duration.days()
+  let total_months = calc.round(total_days / 30.44)
+  let years = calc.floor(total_months / 12)
+  let months = total_months - (years * 12)
+  
+  let parts = ()
+  if years > 0 { parts.push(str(years) + "yrs") }
+  if months > 0 { parts.push(str(months) + "mo") }
+  
+  if parts.len() == 0 { return "<1mo" }
+  parts.join(" ")
+}
+
+#let _term(start: none, end: datetime.today(), short: false) = {
+  let format = "[month repr:short] [year]"
+  if short { format = "[year]" }
+
+  if start != none and start != datetime.today() {
+    datetime.display(start, format)
+    text(" -- ")
+    if end == datetime.today() {
+      text("Present")
+    } else {
+      datetime.display(end, format)
+    }
+    text[ · _(#_duration_to_text(end - start))_]
+  }
+}
+
+#let experience(
+  title: [],
+  company: [],
+  period: (
+    start: none,
+    end: datetime.today(),
+  ),
+  location: "",
+  desc
+) = [
   === #title \
   #if company != none [#company \ ]
   #text(size: text_10.small)[
-    #icon("calendar") #period
+    #icon("calendar")
+    #_term(..period)
     #h(1fr)
     #icon("location-pin") #location
   ]
