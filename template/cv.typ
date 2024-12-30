@@ -88,8 +88,10 @@
   let months = total_months - (years * 12)
 
   let parts = ()
-  if years > 0 { parts.push(str(years) + "yrs") }
-  if months > 0 { parts.push(str(months) + "mo") }
+  if years > 0 and years <= 1 { parts.push(str(years) + "yr") }
+  if years > 1 { parts.push(str(years) + "yrs") }
+  if months > 0 and months <= 1 { parts.push(str(months) + "mo") }
+  if months > 1 { parts.push(str(months) + "mos") }
 
   if parts.len() == 0 { return "<1mo" }
   parts.join(" ")
