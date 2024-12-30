@@ -1,4 +1,4 @@
-#import "template/lib.typ": https  
+#import "template/lib.typ": https
 
 #let sub(name, href: "") = {
   if href != "" {
@@ -32,7 +32,10 @@
 #let ua = sub("Universidade de Aveiro", href: "ua.pt")
 #let polito = sub("Politecnico di Torino", href: "polito.it")
 #let omlox = sub("Omlox", href: "omlox.com")
-#let profibus = sub("Profibus & Profinet International", href: "profibus.com/technology/omlox")
+#let profibus = sub(
+  "Profibus & Profinet International",
+  href: "profibus.com/technology/omlox",
+)
 #let hardwarecity = sub("Hardware City", href: "hardwarecity.org")
 #let eestec = sub("EESTEC LC Aveiro", href: "eestec.net/cities/aveiro")
 #let engenius = sub("Engenius UA", href: "engeniusteam.web.ua.pt")
@@ -44,5 +47,11 @@
 #let ble = sub(emph[BLE])
 #let uwb = sub(emph[UWB])
 
-#let et = sub("Electronics and Telecommunications Engineering", href: "ua.pt/en/curso/27")
-#let icts = sub("Information and Communication Technologies for Smart Societies", href: "www.polito.it/en/education/master-s-degree-programmes/ict-for-smart-societies")
+#let et = sub(
+  "Electronics and Telecommunications Engineering",
+  href: "ua.pt/en/curso/27",
+)
+#let icts = sub(
+  "Information and Communication Technologies for Smart Societies",
+  href: "www.polito.it/en/education/master-s-degree-programmes/ict-for-smart-societies",
+)

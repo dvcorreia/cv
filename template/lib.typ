@@ -49,7 +49,12 @@
   upper(str.slice(0, 1)) + str.slice(1)
 }
 
-#let icon(name, collection: "solid", shift: space.verysmall, height: text_10.normal) = {
+#let icon(
+  name,
+  collection: "solid",
+  shift: space.verysmall,
+  height: text_10.normal,
+) = {
   box(
     baseline: shift,
     height: height,

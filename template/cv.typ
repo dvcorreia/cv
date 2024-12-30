@@ -39,18 +39,24 @@
     (phone, _info(phone, icon: icon("phone-flip"))),
     (location, _info(location, icon: icon("location-pin"))),
     (homepage, _info(homepage, href: https(homepage), icon: icon("globe"))),
-    (linkedin, _info(
+    (
       linkedin,
-      href: https("www.linkedin.com/in/" + linkedin + "/"),
-      icon: icon("linkedin", collection: "brands"),
-    )),
-    (github, _info(
+      _info(
+        linkedin,
+        href: https("www.linkedin.com/in/" + linkedin + "/"),
+        icon: icon("linkedin", collection: "brands"),
+      ),
+    ),
+    (
       github,
-      href: github_href(github),
-      icon: icon("github", collection: "brands"),
-    )),
+      _info(
+        github,
+        href: github_href(github),
+        icon: icon("github", collection: "brands"),
+      ),
+    ),
   )
-  
+
   items.map(ifdef).join(h(space.big))
 }
 
@@ -70,7 +76,7 @@
   company: none,
   employment_type: "Full-time",
   duration: "",
-  ..experiences
+  ..experiences,
 ) = {
   experiences.pos().join(v(space.med))
 }
@@ -80,11 +86,11 @@
   let total_months = calc.round(total_days / 30.44)
   let years = calc.floor(total_months / 12)
   let months = total_months - (years * 12)
-  
+
   let parts = ()
   if years > 0 { parts.push(str(years) + "yrs") }
   if months > 0 { parts.push(str(months) + "mo") }
-  
+
   if parts.len() == 0 { return "<1mo" }
   parts.join(" ")
 }
@@ -113,7 +119,7 @@
     end: datetime.today(),
   ),
   location: "",
-  desc
+  desc,
 ) = [
   === #title \
   #if company != none [#company \ ]
@@ -170,7 +176,10 @@
   set text(text_10.normal, font: sans_font)
   set page(margin: (x: 1.25cm, y: 1.5cm))
 
-  show heading.where(level: 2): it => text(size: text_10.LARGE, font: main_font)[
+  show heading.where(level: 2): it => text(
+    size: text_10.LARGE,
+    font: main_font,
+  )[
     #upper(it.body)
     #v(-15pt)
     #line(length: 100%, stroke: 2pt)
