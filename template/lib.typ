@@ -36,12 +36,16 @@
   "https://" + ref
 }
 
-#let github_href(org, repo: "") = {
-  if repo == none {
-    https("github.com/" + org)
-  } else {
-    https("github.com/" + org + "/" + repo)
+#let github_href(org, repo: "", branch: "") = {
+  let parts = ()
+  parts.push("github.com/" + org)
+  if repo != "" {
+    parts.push("/" + repo)
   }
+  if branch != "" {
+    parts.push("/tree/" + branch)
+  }
+  https(parts.join())
 }
 
 #let capitalize(str) = {

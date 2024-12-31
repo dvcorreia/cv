@@ -30,13 +30,12 @@
     ),
     location: "Remote to Cambridge, US",
   )[
-    Drive neuroscience further.
+    Working on neuroscience #saas products and applications for research institutes, pharmaceutical companies and clinics.
 
-    - Developing solutions to serve high bandwidth medical images to web browser applications
-    - Integrating AI solutions into our hosting products
-    - Colaborating on an authorization solution for client access to medical data
+    - Maintain internal forks of open source projects like #ohif and Google's #neuroglancer and #nvidia's #monailabel server
+    - Full-stack development of solutions to analyze and serve large research data (#celegans and #esckan projects)
 
-    #tag(python) #tag(typescript) #tag(k8s)
+    #tag(python) #tag(typescript) #tag(reactjs)
   ]
 
   #hrule
@@ -61,7 +60,7 @@
       - Worked in the #rtls standardization effort with the #omlox consortium, part of the #profibus
       - Spearheaded company wide initiatives to boost technical excellence and foster innovation across the engineering team
 
-      #tag(go) #tag(reactjs) #tag(typescript) #tag(k8s)
+      #tag(go) #tag(typescript) #tag(reactjs) #tag(k8s)
     ]
   ][
     #experience(
@@ -77,7 +76,7 @@
 
       - Transformed an initial prototype into a robust, production-grade platform, adaptable to any use case and capable of processing data from thousands of BLE and UWB devices
       - Successfully executed one of Europe's largest #rtls projects, encompassing over 1500 #uwb tags at high refresh rates
-      - Introduced modern software development ideas which improved technical quality and reduced manual testing from 4 days to 30 min
+      - Introduced modern software development practices which improved technical quality and reduced manual testing from 4 days to 30 min
 
       #tag(go) #tag(python) #tag(java) #tag(k8s)
     ]
@@ -106,17 +105,17 @@
 
   #tag(go)
   #tag(python)
-  #tag(wasm)
-  #tag(nix)
   #tag(typescript)
   #tag(reactjs)
+  #tag(nix)
+  #tag(wasm)
 
   #line(length: 100%, stroke: (dash: "dashed", thickness: 0.6pt))
 
   #tag(k8s)
   #tag[#docker / #podman]
   #tag(helm)
-  #tag(posgres)
+  #tag(postgres)
 
   == Languages
 
