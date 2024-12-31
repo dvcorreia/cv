@@ -52,6 +52,7 @@
 #let hardwarecity = sub("Hardware City", href: "hardwarecity.org")
 #let eestec = sub("EESTEC LC Aveiro", href: "eestec.net/cities/aveiro")
 #let engenius = sub("Engenius UA", href: "engeniusteam.web.ua.pt")
+#let epcglobal = sub("EPCglobal", href: "gs1.org/epcglobal")
 
 // terms
 #let rtls = sub(emph[RTLS])

@@ -103,13 +103,15 @@
 
   if start != none and start != datetime.today() {
     datetime.display(start, format)
-    text(" -- ")
+    if short == false { text(" -- ") } else { text(" - ") }
     if end == datetime.today() {
       text("Present")
     } else {
       datetime.display(end, format)
     }
-    text[ · _(#_duration_to_text(end - start))_]
+    if short == false {
+      text[ · _(#_duration_to_text(end - start))_]
+    }
   }
 }
 
@@ -142,6 +144,23 @@
   #h(1fr)
   #icon("calendar") #period
 
+  #desc
+]
+
+#let organization(
+  title: [],
+  org: [],
+  period: (
+    start: none,
+    end: datetime.today(),
+  ),
+  desc
+) = [
+  === #title \
+  #set text(size: text_10.small)
+  #icon("people-group") #org
+  #h(1fr)
+  #_term(..period, short: true) \
   #desc
 ]
 
