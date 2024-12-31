@@ -1,4 +1,4 @@
-#import "template/cv.typ": cv, experience, chronology, education, organization, github_card, tag, hrule
+#import "template/cv.typ": cv, experience, chronology, education, organization, github_card, tag, skill, hrule
 #import "template/lib.typ": *
 #import "alias.typ": *
 
@@ -125,8 +125,8 @@
 
   == Languages
 
-  - Portuguese (Native)
-  - English (C1)
+  #skill("Portuguese (Native)", 5)
+  #skill("English (C1)", 4.5)
 
   == Organizations
 
@@ -136,7 +136,9 @@
     period: (
       start: datetime(day: 1, month: 10, year: 2023)
     )
-  )[#tag[Product Development] #tag[Support Startups]]
+  )[
+    Create an open and sustainable community around product development.
+  ]
 
   // #organization(
   //   title: "Logistics",

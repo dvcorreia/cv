@@ -154,7 +154,7 @@
     start: none,
     end: datetime.today(),
   ),
-  desc
+  desc,
 ) = [
   === #title \
   #set text(size: text_10.small)
@@ -226,6 +226,42 @@
       [#icon("code-fork") #meta.forks_count],
     ).join(h(space.big))
   ]
+}
+
+#let max_rating = 5
+#let skill(name, rating) = {
+  let done = false
+  let i = 1
+
+  name
+
+  h(1fr)
+
+  while (not done) {
+    let colour = colors.gray_300
+
+    if (i <= rating) {
+      colour = colors.gray_950
+    }
+
+    box(
+      circle(
+        radius: 4pt,
+        fill: colour,
+      ),
+    )
+
+    if (max_rating == i) {
+      done = true
+    } else {
+      // no spacing on last
+      h(2pt)
+    }
+
+    i += 1
+  }
+
+  [\ ]
 }
 
 #let cv(
