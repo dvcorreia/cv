@@ -37,12 +37,10 @@
   #hrule
 
   #chronology(
-    company: wavecom,
-    duration: "3yrs 3mos",
+    wavecom,
   )[
     #experience(
       title: "Product Technical Lead",
-      company: wavecom,
       period: "Dec 2022 -- Jun 2024",
       location: "Aveiro, Portugal",
     )[
