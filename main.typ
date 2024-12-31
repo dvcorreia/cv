@@ -1,5 +1,5 @@
-#import "template/cv.typ": cv, experience, chronology, education, tag, hrule
-#import "template/lib.typ": space, text_10
+#import "template/cv.typ": cv, experience, chronology, education, github_card, tag, hrule
+#import "template/lib.typ": *
 #import "alias.typ": *
 
 #show: cv.with(
@@ -122,18 +122,24 @@
   - Portuguese (Native)
   - English (C1)
 
-  == Organizations
+  == Projects
 
-  === Vice President \
-  #hardwarecity \
-  #tag[Product Development]
+  #github_card("wavecomtech", "omlox-client-go")
+  #hrule
+  #github_card("NixOS", "nixpkgs", desc: "Package maintainer")
 
-  === Logistics \
-  #eestec \
-  #tag[Workshops]
+  // == Organizations
 
-  === Electric Powertrain \
-  #engenius\
-  #tag[CAN Bus]
-  #tag[BMS Systems]
+  // === Vice President \
+  // #hardwarecity \
+  // #tag[Product Development]
+
+  // === Logistics \
+  // #eestec \
+  // #tag[Workshops]
+
+  // === Electric Powertrain \
+  // #engenius\
+  // #tag[CAN Bus]
+  // #tag[BMS Systems]
 ]

@@ -30,6 +30,9 @@
   gray_500: rgb("#737373"),
   gray_400: rgb("#a3a3a3"),
   gray_300: rgb("#d4d4d4"),
+  gray_200: rgb("#e5e5e5"),
+  gray_100: rgb("#f5f5f5"),
+  gray_50: rgb("#fafafa"),
 )
 
 #let https(ref) = {
@@ -65,4 +68,13 @@
     image("vendor/icons/" + collection + "/" + name + ".svg"),
   )
   h(space.small)
+}
+
+#let dot(size: 6pt) = {
+  box(
+    width: size,
+    height: size,
+    radius: size / 2,
+    fill: black,
+  )
 }

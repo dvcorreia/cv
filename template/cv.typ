@@ -146,19 +146,67 @@
 ]
 
 #let tag(skill) = {
-  let stroke = 0.3pt + colors.gray_500
-  set text(stroke: stroke)
   box(
     stroke: none,
     inset: (right: 0.2em, y: 0.3em),
     box(
       inset: (x: 0.4em),
       outset: (y: 0.4em),
-      stroke: stroke,
+      stroke: (
+        thickness: 0.3pt,
+        paint: colors.gray_500,
+      ),
       radius: 3pt,
       skill,
     ),
   )
+}
+
+#let format_number(num) = {
+  let suffixes = ("", "k", "M", "B", "T")
+  let tier = calc.floor(calc.log(num, base: 1000))
+  let scaled = num / calc.pow(1000, tier)
+  let suffix = suffixes.at(tier)
+
+  // handle numbers less than 1000
+  if tier == 0 {
+    return str(num)
+  }
+
+  // round to 1 decimal place
+  let formatted = calc.round(scaled, digits: 1)
+  let str_num = str(formatted)
+
+  // remove .0 if present
+  if str_num.ends-with(".0") {
+    str_num = str_num.substring(0, str_num.len() - 2)
+  }
+
+  return str_num + suffix
+}
+
+#let github_card(org, repo, desc: "") = {
+  let meta = json("gh-metadata/" + org + "_" + repo + ".json")
+  box(
+    radius: 3pt,
+    inset: 0.3em,
+    width: 100%,
+  )[
+    #if desc != "" {
+      desc + " in"
+    }
+    #h(space.small)
+    #box[#link(
+        github_href(org, repo: repo),
+      )[#icon("book-bookmark")*#meta.full_name*]] \
+    #text(colors.gray_700)[#meta.description] \
+
+    #(
+      [#dot() #meta.language],
+      [#icon("star") #format_number(meta.stargazers_count)],
+      [#icon("code-fork") #meta.forks_count],
+    ).join(h(space.big))
+  ]
 }
 
 #let cv(
