@@ -39,18 +39,24 @@
     (phone, _info(phone, icon: icon("phone-flip"))),
     (location, _info(location, icon: icon("location-pin"))),
     (homepage, _info(homepage, href: https(homepage), icon: icon("globe"))),
-    (linkedin, _info(
+    (
       linkedin,
-      href: https("www.linkedin.com/in/" + linkedin + "/"),
-      icon: icon("linkedin", collection: "brands"),
-    )),
-    (github, _info(
+      _info(
+        linkedin,
+        href: https("www.linkedin.com/in/" + linkedin + "/"),
+        icon: icon("linkedin", collection: "brands"),
+      ),
+    ),
+    (
       github,
-      href: github_href(github),
-      icon: icon("github", collection: "brands"),
-    )),
+      _info(
+        github,
+        href: github_href(github),
+        icon: icon("github", collection: "brands"),
+      ),
+    ),
   )
-  
+
   items.map(ifdef).join(h(space.big))
 }
 
@@ -70,16 +76,60 @@
   company: none,
   employment_type: "Full-time",
   duration: "",
-  ..experiences
+  ..experiences,
 ) = {
   experiences.pos().join(v(space.med))
 }
 
-#let experience(title: [], company: [], period: "", location: "", desc) = [
+#let _duration_to_text(duration) = {
+  let total_days = duration.days()
+  let total_months = calc.round(total_days / 30.44)
+  let years = calc.floor(total_months / 12)
+  let months = total_months - (years * 12)
+
+  let parts = ()
+  if years > 0 and years <= 1 { parts.push(str(years) + "yr") }
+  if years > 1 { parts.push(str(years) + "yrs") }
+  if months > 0 and months <= 1 { parts.push(str(months) + "mo") }
+  if months > 1 { parts.push(str(months) + "mos") }
+
+  if parts.len() == 0 { return "<1mo" }
+  parts.join(" ")
+}
+
+#let _term(start: none, end: datetime.today(), short: false) = {
+  let format = "[month repr:short] [year]"
+  if short { format = "[year]" }
+
+  if start != none and start != datetime.today() {
+    datetime.display(start, format)
+    if short == false { text(" -- ") } else { text(" - ") }
+    if end == datetime.today() {
+      text("Present")
+    } else {
+      datetime.display(end, format)
+    }
+    if short == false {
+      text[ · _(#_duration_to_text(end - start))_]
+    }
+  }
+}
+
+#let experience(
+  title: [],
+  company: [],
+  period: (
+    start: none,
+    end: datetime.today(),
+  ),
+  location: "",
+  desc,
+) = [
   === #title \
   #if company != none [#company \ ]
   #text(size: text_10.small)[
-    #icon("calendar") #period
+    #icon("calendar")
+    #_term(..period)
     #h(1fr)
     #icon("location-pin") #location
   ]
@@ -97,20 +147,121 @@
   #desc
 ]
 
+#let organization(
+  title: [],
+  org: [],
+  period: (
+    start: none,
+    end: datetime.today(),
+  ),
+  desc,
+) = [
+  === #title \
+  #set text(size: text_10.small)
+  #icon("people-group") #org
+  #h(1fr)
+  #_term(..period, short: true) \
+  #desc
+]
+
 #let tag(skill) = {
-  let stroke = 0.3pt + colors.gray_500
-  set text(stroke: stroke)
   box(
     stroke: none,
     inset: (right: 0.2em, y: 0.3em),
     box(
       inset: (x: 0.4em),
       outset: (y: 0.4em),
-      stroke: stroke,
+      stroke: (
+        thickness: 0.3pt,
+        paint: colors.gray_500,
+      ),
       radius: 3pt,
       skill,
     ),
   )
+}
+
+#let format_number(num) = {
+  let suffixes = ("", "k", "M", "B", "T")
+  let tier = calc.floor(calc.log(num, base: 1000))
+  let scaled = num / calc.pow(1000, tier)
+  let suffix = suffixes.at(tier)
+
+  // handle numbers less than 1000
+  if tier == 0 {
+    return str(num)
+  }
+
+  // round to 1 decimal place
+  let formatted = calc.round(scaled, digits: 1)
+  let str_num = str(formatted)
+
+  // remove .0 if present
+  if str_num.ends-with(".0") {
+    str_num = str_num.substring(0, str_num.len() - 2)
+  }
+
+  return str_num + suffix
+}
+
+#let github_card(org, repo, desc: "") = {
+  let meta = json("gh-metadata/" + org + "_" + repo + ".json")
+  box(
+    radius: 3pt,
+    inset: 0.3em,
+    width: 100%,
+  )[
+    #if desc != "" {
+      desc + " in"
+    }
+    #h(space.small)
+    #box[#link(
+        github_href(org, repo: repo),
+      )[#icon("book-bookmark")*#meta.full_name*]] \
+    #text(colors.gray_700)[#meta.description] \
+
+    #(
+      [#dot() #meta.language],
+      [#icon("star") #format_number(meta.stargazers_count)],
+      [#icon("code-fork") #meta.forks_count],
+    ).join(h(space.big))
+  ]
+}
+
+#let max_rating = 5
+#let skill(name, rating) = {
+  let done = false
+  let i = 1
+
+  name
+
+  h(1fr)
+
+  while (not done) {
+    let colour = colors.gray_300
+
+    if (i <= rating) {
+      colour = colors.gray_950
+    }
+
+    box(
+      circle(
+        radius: 4pt,
+        fill: colour,
+      ),
+    )
+
+    if (max_rating == i) {
+      done = true
+    } else {
+      // no spacing on last
+      h(2pt)
+    }
+
+    i += 1
+  }
+
+  [\ ]
 }
 
 #let cv(
@@ -130,7 +281,10 @@
   set text(text_10.normal, font: sans_font)
   set page(margin: (x: 1.25cm, y: 1.5cm))
 
-  show heading.where(level: 2): it => text(size: text_10.LARGE, font: main_font)[
+  show heading.where(level: 2): it => text(
+    size: text_10.LARGE,
+    font: main_font,
+  )[
     #upper(it.body)
     #v(-15pt)
     #line(length: 100%, stroke: 2pt)

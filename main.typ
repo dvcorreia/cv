@@ -1,5 +1,5 @@
-#import "template/cv.typ": cv, experience, chronology, education, tag, hrule
-#import "template/lib.typ": space, text_10
+#import "template/cv.typ": cv, experience, chronology, education, organization, github_card, tag, skill, hrule
+#import "template/lib.typ": *
 #import "alias.typ": *
 
 #show: cv.with(
@@ -24,14 +24,18 @@
   #experience(
     title: "Software Engineer",
     company: metacell,
-    period: "Jun 2024 -- Ongoing",
+    period: (
+      start: datetime(day: 1, month: 6, year: 2024),
+      end: datetime.today(),
+    ),
     location: "Remote to Cambridge, US",
   )[
-    Drive neuroscience further.
+    Working on neuroscience #saas products and applications for research institutes, pharmaceutical companies and clinics.
 
-    - Developing solutions to serve high bandwidth medical images to web browser applications
-    - Integrating AI solutions into our hosting products
-    - Colaborating on an authorization solution for client access to medical data
+    - Maintain internal forks of open source projects like #ohif, Google's #neuroglancer and #nvidia's #monailabel server
+    - Full-stack development of solutions to analyze and serve large research data (#celegans and #esckan projects)
+
+    #tag(python) #tag(typescript) #tag(reactjs)
   ]
 
   #hrule
@@ -43,29 +47,38 @@
     #experience(
       title: "Product Technical Lead",
       company: wavecom,
-      period: "Dec 2022 -- Jun 2024",
+      period: (
+        start: datetime(day: 1, month: 12, year: 2022),
+        end: datetime(day: 1, month: 6, year: 2024),
+      ),
       location: "Aveiro, Portugal",
     )[
       Oversee the technical direction and vision for the real-time location systems (#rtls) products.
 
-      - Served as lead developer, providing technical solutions and contributing to the product across all stages of it's lifecycle
-      - Ensure cohesion and quality over the lifecycle of the product and infuse engineering best practices throughout the team
-      - Working in the #rtls standardization effort with the #omlox consortium, part of the #profibus
-      - Spearheaded a developer advocacy initiative to boost the company's technical excellence, foster innovation, and mentor recent college graduates
+      - Co-led an 8-person cross-functional Scrum team, together with a Project Manager and a Product Owner
+      - Ensured cohesion and quality over the lifecycle of the product and infused engineering best practices throughout the team
+      - Worked in the #rtls standardization effort with the #omlox consortium, part of the #profibus
+      - Spearheaded company wide initiatives to boost technical excellence and foster innovation across the engineering teams
+
+      #tag(go) #tag(typescript) #tag(reactjs) #tag(k8s)
     ]
   ][
     #experience(
       title: "Software Engineer",
       company: wavecom,
-      period: "Apr 2021 -- Dec 2022",
+      period: (
+        start: datetime(day: 1, month: 4, year: 2021),
+        end: datetime(day: 1, month: 12, year: 2022),
+      ),
       location: "Aveiro, Portugal",
     )[
-      Worked on real-time location systems (#rtls) and radio identification (#rfid) products for industry and healthcare.
+      Worked on real-time location systems (#rtls) and ultra-high frequency radio identification (#uhf #rfid) products for industry and healthcare.
 
-      - Developed software in #python and #go to connect, manage and process packets for thousands of #ble and #uwb devices
-      - Worked on UHF #rfid software solutions in #python and #java to improve client logistics and shop floor operations
-      - Successfully executed the deployment of one of Europe's largest real-time locating system (#rtls) projects for Continental AG's manufacturing group, encompassing over 1500 #uwb tags
-      - Introduced modern software development life cycle tools and developed a set codebases that resulted in improved technical quality, reduced bugs and development agility
+      - Transformed an initial prototype into a robust, production-grade platform, adaptable to any use case and capable of processing packets from thousands of BLE and UWB devices
+      - Successfully executed one of Europe's largest #rtls projects, encompassing over 1500 #uwb tags at high refresh rates
+      - Introduced modern software development practices which improved technical quality and reduced manual testing from 4 days to 30 min
+
+      #tag(go) #tag(python) #tag(java) #tag(k8s)
     ]
   ]
 ][
@@ -76,8 +89,8 @@
     institution: ua,
     period: "2014 - 2020",
   )[
-    Dissertation title: "EPCGlobal Architecture:
-    Smart Shelf Implementation for Retail Inventory Management"
+    // Dissertation: #emph["#epcglobal Architecture:
+    // Smart Shelf Implementation for Retail Inventory Management"]
   ]
 
   #education(
@@ -85,42 +98,63 @@
     institution: polito,
     period: "2018 - 2019",
   )[
-    #icts: focus on automotive, IoT applications and machine learning.
+    #icts with focus on automotive, IoT applications and machine learning.
   ]
 
   == Skills & Tools
 
   #tag(go)
   #tag(python)
-  #tag(wasm)
-  #tag(nix)
   #tag(typescript)
   #tag(reactjs)
+  #tag(nix)
+  #tag(wasm)
 
-  #line(length: 100%, stroke: (dash: "dashed", thickness: 0.6pt))
+  #hrule
 
   #tag(k8s)
   #tag[#docker / #podman]
   #tag(helm)
-  #tag(posgres)
+  #tag(postgres)
+
+  == Projects
+
+  #github_card("wavecomtech", "omlox-client-go")
+  #hrule
+  #github_card("NixOS", "nixpkgs", desc: "Package maintainer")
 
   == Languages
 
-  - Portuguese (Native)
-  - English (C1)
+  #skill("Portuguese (Native)", 5)
+  #skill("English (C1)", 4.5)
 
   == Organizations
 
-  === Vice President \
-  #hardwarecity \
-  #tag[Product Development]
+  #organization(
+    title: "Vice President",
+    org: hardwarecity,
+    period: (
+      start: datetime(day: 1, month: 10, year: 2023)
+    )
+  )[
+    Create an open and sustainable community around product development.
+  ]
 
-  === Logistics \
-  #eestec \
-  #tag[Workshops]
+  // #organization(
+  //   title: "Logistics",
+  //   org: eestec,
+  //   period: (
+  //     start: datetime(day: 1, month: 12, year: 2019),
+  //     end: datetime(day: 1, month: 12, year: 2020)
+  //   )
+  // )[#tag[Workshops]]
 
-  === Electric Powertrain \
-  #engenius\
-  #tag[CAN Bus]
-  #tag[BMS Systems]
+  // #organization(
+  //   title: "Electronics and Electric Powertrain",
+  //   org: engenius,
+  //   period: (
+  //     start: datetime(day: 1, month: 10, year: 2017),
+  //     end: datetime(day: 1, month: 9, year: 2019)
+  //   )
+  // )[#tag[CAN Bus] #tag[BMS Systems]]
 ]

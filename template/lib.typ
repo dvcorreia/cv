@@ -30,18 +30,25 @@
   gray_500: rgb("#737373"),
   gray_400: rgb("#a3a3a3"),
   gray_300: rgb("#d4d4d4"),
+  gray_200: rgb("#e5e5e5"),
+  gray_100: rgb("#f5f5f5"),
+  gray_50: rgb("#fafafa"),
 )
 
 #let https(ref) = {
   "https://" + ref
 }
 
-#let github_href(org, repo: "") = {
-  if repo == none {
-    https("github.com/" + org)
-  } else {
-    https("github.com/" + org + "/" + repo)
+#let github_href(org, repo: "", branch: "") = {
+  let parts = ()
+  parts.push("github.com/" + org)
+  if repo != "" {
+    parts.push("/" + repo)
   }
+  if branch != "" {
+    parts.push("/tree/" + branch)
+  }
+  https(parts.join())
 }
 
 #let capitalize(str) = {
@@ -49,11 +56,25 @@
   upper(str.slice(0, 1)) + str.slice(1)
 }
 
-#let icon(name, collection: "solid", shift: space.verysmall, height: text_10.normal) = {
+#let icon(
+  name,
+  collection: "solid",
+  shift: space.verysmall,
+  height: text_10.normal,
+) = {
   box(
     baseline: shift,
     height: height,
     image("vendor/icons/" + collection + "/" + name + ".svg"),
   )
   h(space.small)
+}
+
+#let dot(size: 6pt) = {
+  box(
+    width: size,
+    height: size,
+    radius: size / 2,
+    fill: black,
+  )
 }
