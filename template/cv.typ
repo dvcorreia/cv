@@ -83,7 +83,7 @@
 
 #let _duration_to_text(duration) = {
   let total_days = duration.days()
-  let total_months = calc.round(total_days / 30.44)
+  let total_months = calc.ceil(total_days / 30.44)
   let years = calc.floor(total_months / 12)
   let months = total_months - (years * 12)
 
