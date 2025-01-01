@@ -221,7 +221,7 @@
     #text(colors.gray_700)[#meta.description] \
 
     #(
-      [#dot() #meta.language],
+      [#dot() #h(space.verysmall) #meta.language],
       [#icon("star") #format_number(meta.stargazers_count)],
       [#icon("code-fork") #meta.forks_count],
     ).join(h(space.big))
