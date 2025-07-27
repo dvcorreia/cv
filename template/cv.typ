@@ -176,7 +176,7 @@
         paint: colors.gray_500,
       ),
       radius: 3pt,
-      skill,
+      text(size: text_10.small, skill)
     ),
   )
 }
