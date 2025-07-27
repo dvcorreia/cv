@@ -83,18 +83,40 @@
 
 #let _duration_to_text(duration) = {
   let total_days = duration.days()
-  let total_months = calc.ceil(total_days / 30.44)
-  let years = calc.floor(total_months / 12)
-  let months = total_months - (years * 12)
+
+  let approx_years = total_days / 365.25
+  let years = calc.floor(approx_years)
+  let remaining_days = total_days - (years * 365.25)
+  let months = calc.ceil(remaining_days / 30.44) // round months up
+
+  if months >= 12 {
+    years = years + 1
+    months = 0
+  }
 
   let parts = ()
-  if years > 0 and years <= 1 { parts.push(str(years) + "yr") }
-  if years > 1 { parts.push(str(years) + "yrs") }
-  if months > 0 and months <= 1 { parts.push(str(months) + "mo") }
-  if months > 1 { parts.push(str(months) + "mos") }
 
-  if parts.len() == 0 { return "<1mo" }
-  parts.join(" ")
+  if years > 0 {
+    if years == 1 {
+      parts.push(str(years) + "yr")
+    } else {
+      parts.push(str(years) + "yrs")
+    }
+  }
+
+  if months > 0 {
+    if months == 1 {
+      parts.push(str(months) + "mo")
+    } else {
+      parts.push(str(months) + "mos")
+    }
+  }
+
+  if parts.len() == 0 {
+    return "<1mo"
+  }
+
+  return parts.join(" ")
 }
 
 #let _term(start: none, end: datetime.today(), short: false) = {
@@ -176,7 +198,7 @@
         paint: colors.gray_500,
       ),
       radius: 3pt,
-      text(size: text_10.small, skill)
+      text(size: text_10.small, skill),
     ),
   )
 }
