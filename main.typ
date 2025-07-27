@@ -25,7 +25,7 @@
     title: "Senior Open-Source Engineer",
     company: siemens,
     period: (
-      start: datetime(day: 1, month: 5, year: 2025),
+      start: datetime(day: 22, month: 5, year: 2025),
       end: datetime.today(),
     ),
     location: "Lisbon, Portugal",
@@ -40,7 +40,7 @@
     company: metacell,
     period: (
       start: datetime(day: 1, month: 6, year: 2024),
-      end: datetime(day: 1, month: 5, year: 2025),
+      end: datetime(day: 23, month: 4, year: 2025),
     ),
     location: "Remote to Cambridge, US",
   )[
