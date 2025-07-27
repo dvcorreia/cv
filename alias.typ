@@ -40,6 +40,7 @@
 #let wavecom = sub("Wavecom Technologies", href: "wavecom.com")
 #let metacell = sub("MetaCell", href: "metacell.us")
 #let nvidia = sub("Nvidia", href: "nvidia.com")
+#let siemens = sub("Siemens", href: "siemens.com")
 
 // organizations
 #let ua = sub("Universidade de Aveiro", href: "ua.pt")
@@ -53,6 +54,7 @@
 #let eestec = sub("EESTEC LC Aveiro", href: "eestec.net/cities/aveiro")
 #let engenius = sub("Engenius UA", href: "engeniusteam.web.ua.pt")
 #let epcglobal = sub("EPCglobal", href: "gs1.org/epcglobal")
+#let code-siemens = sub("Code & DevOps", href: "opensource.siemens.com/team")
 
 // terms
 #let rtls = sub(emph[RTLS])
