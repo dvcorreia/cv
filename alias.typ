@@ -35,6 +35,7 @@
 #let podman = sub("Podman", href: "podman.io")
 #let helm = sub("Helm", href: "helm.sh")
 #let postgres = sub("PostgreSQL", href: "postgresql.org")
+#let terraform = sub("Terraform", href: "developer.hashicorp.com/terraform")
 
 // companies
 #let wavecom = sub("Wavecom Technologies", href: "wavecom.com")

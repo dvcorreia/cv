@@ -127,6 +127,7 @@
   #tag[#docker / #podman]
   #tag(helm)
   #tag(postgres)
+  #tag(terraform)
 
   == Projects
 
