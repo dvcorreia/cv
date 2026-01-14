@@ -28,7 +28,7 @@
       start: datetime(day: 22, month: 5, year: 2025),
       end: datetime.today(),
     ),
-    location: "Lisbon, Portugal",
+    location: "Remote to Zug, Switzerland",
   )[
     Working in the #code-siemens team, improving developer experience, advocating for open source culture and contributing to open-source projects strategic to #siemens.
   ]
