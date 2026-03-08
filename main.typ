@@ -116,6 +116,7 @@
 
   #tag(go)
   #tag(python)
+  #tag(django)
   #tag(typescript)
   #tag(reactjs)
   #tag(nix)

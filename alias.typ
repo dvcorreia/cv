@@ -18,8 +18,11 @@
 #let wasm = sub("WebAssembly", href: "webassembly.org")
 #let nix = sub("Nix", href: "nixos.org")
 #let typescript = sub("TypeScript", href: "typescriptlang.org")
-#let reactjs = sub("ReactJS", href: "react.dev")
 #let java = sub("Java")
+
+// frameworks
+#let reactjs = sub("ReactJS", href: "react.dev")
+#let django = sub("Django", href: "djangoproject.com")
 
 // projects
 #let ohif = sub("OHIF", href: "ohif.org")
