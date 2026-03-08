@@ -15,6 +15,8 @@
   ),
 )
 
+
+
 #grid(
   columns: (60%, auto),
   gutter: 20pt,
@@ -30,8 +32,19 @@
     ),
     location: "Remote to Zug, Switzerland",
   )[
-    Working in the #code-siemens team, improving developer experience, advocating for open source culture and contributing to open-source projects strategic to #siemens.
+    Working in the #code-siemens team to keep developers happy!
+
+    #let siemens-ai-post = link(
+      "https://blog.siemens.com/2025/10/our-sovereign-ai-journey-building-a-self-contained-sustainable-and-cost-effective-llm-platform/",
+      "open weight AI models"
+    )
+
+    - Maintain internal services and provide customer support to our users
+    - Host #gitlabce and #siemens-ai-post for everyone at #siemens
+    - Advocate for open source culture and contribute to strategic open-source projects
   ]
+
+  #tag(python) #tag(django) #tag(terraform) #tag(typescript) #tag(angularjs)
 
   #hrule
 
@@ -44,12 +57,11 @@
     ),
     location: "Remote to Cambridge, US",
   )[
-    Worked on neuroscience #saas products and applications for research institutes, pharmaceutical companies and clinics.
+    Worked on neuroscience applications for medical research institutes and pharmaceutical companies.
 
-    - Maintain internal forks of open source projects like #ohif, Google's #neuroglancer and #nvidia's #monailabel server
-    - Full-stack development of solutions to analyze and serve large research data (#celegans and #esckan projects)
+    - Maintained #neuroglass and codebases like #ohif, Google's #neuroglancer and #nvidia's #monailabel server
 
-    #tag(python) #tag(typescript) #tag(reactjs)
+    #tag(python) #tag(django) #tag(typescript) #tag(reactjs)
   ]
 
   #hrule
@@ -67,9 +79,8 @@
       ),
       location: "Aveiro, Portugal",
     )[
-      Oversee the technical direction for the real-time location systems (#rtls) products and team.
+      Oversaw the technical direction for the real-time location systems (#rtls) products.
 
-      - Co-led an 8-person cross-functional Scrum team, together with a Project Manager and a Product Owner
       - Ensured cohesion and quality over the lifecycle of the product and infused engineering best practices throughout the team
       - Worked in the #rtls standardization effort with the #omlox consortium, part of the #profibus
 
@@ -87,7 +98,7 @@
     )[
       Worked on real-time location systems (#rtls) and ultra-high frequency radio identification (#uhf #rfid) products for industry and healthcare.
 
-      - Transformed an initial prototype into a robust, production-grade platform, adaptable to any use case and capable of processing packets from thousands of BLE and UWB devices
+      - Transformed an initial concept into a robust, production-grade platform, adaptable to any use case and capable of processing packets from thousands of #ble and #uwb devices
 
       #tag(go) #tag(python) #tag(java) #tag(k8s)
     ]

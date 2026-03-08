@@ -12,7 +12,7 @@
   }
 }
 
-// programming Languages
+// programming languages
 #let go = sub("Go", href: "go.dev")
 #let python = sub("Python", href: "python.org")
 #let wasm = sub("WebAssembly", href: "webassembly.org")
@@ -22,15 +22,18 @@
 
 // frameworks
 #let reactjs = sub("ReactJS", href: "react.dev")
+#let angularjs = sub("AngularJS", href: "angular.dev")
 #let django = sub("Django", href: "djangoproject.com")
 
 // projects
+#let neuroglass = sub("NeuroGlass", href: "neuroglass.com")
 #let ohif = sub("OHIF", href: "ohif.org")
 #let neuroglancer = sub("Neuroglancer", href: github_href("google", repo: "neuroglancer"))
 #let monai = sub("MONAI", href: "monai.io")
 #let monailabel = sub("MONAILabel", href: github_href("Project-MONAI", repo: "MONAILabel"))
 #let esckan = sub("ESCKAN", href: github_href("MetaCell", repo: "sckan-explorer", branch: "develop"))
 #let celegans = sub("C-Elegans", href: github_href("MetaCell", repo: "c-elegans-app", branch: "develop"))
+#let gitlabce = sub("GitLab CE", href: "gitlab.com/rluna-gitlab/gitlab-ce")
 
 // tools
 #let k8s = sub("Kubernetes", href: "kubernetes.io")
