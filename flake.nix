@@ -131,6 +131,8 @@
             watch-script
 
             pkgs.typstyle
+            pkgs.playwright
+            pkgs.playwright-mcp
           ];
         };
       }
