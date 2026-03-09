@@ -32,7 +32,7 @@
     ),
     location: "Remote to Zug, Switzerland",
   )[
-    Working in the #code-siemens team to keep developers happy!
+    Working on the #code-siemens team, ensuring developers are happy!
 
     #let siemens-ai-post = link(
       "https://blog.siemens.com/2025/10/our-sovereign-ai-journey-building-a-self-contained-sustainable-and-cost-effective-llm-platform/",
