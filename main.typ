@@ -30,19 +30,19 @@
     ),
     location: "Remote to Zug, Switzerland",
   )[
-    Part of #code-siemens, collaborating closely with Siemens developers to help them build their best work.
+    Part of the #code-siemens team, contributing across multiple projects in what the Siemens developers need and find important.
 
     #let siemens-ai-post = link(
       "https://blog.siemens.com/2025/10/our-sovereign-ai-journey-building-a-self-contained-sustainable-and-cost-effective-llm-platform/",
       "open weight AI models"
     )
 
-    - Write and maintain internal services and provide support to our users
+    - Work through incoming issues, contributing internally and upstream
     - Host #gitlabce and #siemens-ai-post for everyone at #siemens
-    - Advocate for open source culture and contribute to strategic open-source projects
+    - Drive upstream-first mindset and open source work practices
   ]
 
-  #tag(python) #tag(django) #tag(terraform) #tag(typescript) #tag(angularjs)
+  #tag(python) #tag(django) #tag(go) #tag(terraform) #tag(typescript)
 
   #hrule
 
