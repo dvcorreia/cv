@@ -1,3 +1,5 @@
+#import "@preview/font-awesome:7.0.0": icon-image
+
 #let text_10 = (
   tiny: 5pt,
   scriptsize: 7pt,
@@ -65,7 +67,7 @@
   box(
     baseline: shift,
     height: height,
-    image("vendor/icons/" + collection + "/" + name + ".svg"),
+    icon-image(name, collection: collection),
   )
   h(space.small)
 }

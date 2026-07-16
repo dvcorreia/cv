@@ -238,8 +238,8 @@
     }
     #h(space.small)
     #box[#link(
-        github_href(org, repo: repo),
-      )[#icon("book-bookmark")*#meta.full_name*]] \
+      github_href(org, repo: repo),
+    )[#icon("book-bookmark")*#meta.full_name*]] \
     #text(colors.gray_700)[#meta.description] \
 
     #(

@@ -1,4 +1,4 @@
-#import "template/lib.typ": https, github_href
+#import "template/lib.typ": github_href, https
 
 #let sub(name, href: "") = {
   if href != "" {
@@ -28,11 +28,25 @@
 // projects
 #let neuroglass = sub("NeuroGlass", href: "neuroglass.com")
 #let ohif = sub("OHIF", href: "ohif.org")
-#let neuroglancer = sub("Neuroglancer", href: github_href("google", repo: "neuroglancer"))
+#let neuroglancer = sub("Neuroglancer", href: github_href(
+  "google",
+  repo: "neuroglancer",
+))
 #let monai = sub("MONAI", href: "monai.io")
-#let monailabel = sub("MONAILabel", href: github_href("Project-MONAI", repo: "MONAILabel"))
-#let esckan = sub("ESCKAN", href: github_href("MetaCell", repo: "sckan-explorer", branch: "develop"))
-#let celegans = sub("C-Elegans", href: github_href("MetaCell", repo: "c-elegans-app", branch: "develop"))
+#let monailabel = sub("MONAILabel", href: github_href(
+  "Project-MONAI",
+  repo: "MONAILabel",
+))
+#let esckan = sub("ESCKAN", href: github_href(
+  "MetaCell",
+  repo: "sckan-explorer",
+  branch: "develop",
+))
+#let celegans = sub("C-Elegans", href: github_href(
+  "MetaCell",
+  repo: "c-elegans-app",
+  branch: "develop",
+))
 #let gitlabce = sub("GitLab CE", href: "gitlab.com/rluna-gitlab/gitlab-ce")
 
 // tools
