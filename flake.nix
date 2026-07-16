@@ -2,137 +2,138 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    typix = {
-      url = "github:loqusion/typix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    press.url = "github:RossSmyth/press";
 
-    flake-utils.url = "github:numtide/flake-utils";
-
-    font-awesome = {
+    font-awesome-icons = {
       url = "github:FortAwesome/Font-Awesome";
       flake = false;
     };
   };
 
   outputs =
-    inputs@{
+    {
+      self,
       nixpkgs,
-      typix,
-      flake-utils,
+      press,
+      font-awesome-icons,
       ...
     }:
-    flake-utils.lib.eachDefaultSystem (
-      system:
-      let
-        pkgs = nixpkgs.legacyPackages.${system};
-        inherit (pkgs) lib;
+    let
+      inherit (nixpkgs) lib;
+      forAllSystems = lib.genAttrs lib.systems.flakeExposed;
 
-        typixLib = typix.lib.${system};
-
-        src = typixLib.cleanTypstSource ./.;
-        commonArgs = {
-          typstSource = "main.typ";
-
-          fontPaths = [
-            # Add paths to fonts here
-            "${pkgs.roboto-slab}/share/fonts/truetype"
-            "${pkgs.lato}/share/fonts/lato"
+      nixpkgsFor = forAllSystems (
+        system:
+        import nixpkgs {
+          inherit system;
+          overlays = [
+            press.overlays.default
+            self.overlays.default
           ];
-
-          virtualPaths = [
-            # Add paths that must be locally accessible to typst here
-            {
-              dest = "template/vendor/icons";
-              src = "${inputs.font-awesome}/svgs";
-            }
-            {
-              dest = "template/gh-metadata";
-              src = ./template/gh-metadata;
-            }
-            {
-              dest = "photos";
-              src = ./photos;
-            }
+        }
+      );
+    in
+    {
+      overlays.default = final: _prev: {
+        diogo-correia-cv = final.callPackage ./package.nix { };
+        font-awesome-icons = font-awesome-icons;
+        font-awesome-typst = final.callPackage ./font-awesome-typst { };
+        get-projects-metadata = final.writeShellApplication {
+          name = "get-projects-metadata";
+          runtimeInputs = [
+            final.curl
+            final.jq
           ];
+          text = builtins.readFile ./scripts/get-projects-metadata.sh;
         };
+      };
 
-        # Compile a Typst project, *without* copying the result
-        # to the current directory
-        build-drv = typixLib.buildTypstProject (commonArgs // { inherit src; });
+      checks = forAllSystems (system: {
+        test-cv-builds = self.packages.${system}.default;
+      });
 
-        # Compile a Typst project, and then copy the result
-        # to the current directory
-        build-script = typixLib.buildTypstProjectLocal (commonArgs // { inherit src; });
+      packages = forAllSystems (system: {
+        default = nixpkgsFor.${system}.diogo-correia-cv;
+      });
 
-        # Watch a project and recompile on changes
-        watch-script = typixLib.watchTypstProject commonArgs;
+      apps = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgsFor.${system};
+          cv = pkgs.diogo-correia-cv;
 
-        # Fetch json metadata for the GitHub projects
-        gen-script =
-          { repos }:
-          pkgs.writeShellApplication {
-            name = "update-projects-metadata-script";
-            runtimeInputs = [ pkgs.curl ];
+          output = "diogo-correia-cv.pdf";
+
+          mkApp =
+            {
+              name,
+              text,
+              runtimeInputs ? [ ],
+            }:
+            {
+              type = "app";
+              program = lib.getExe (pkgs.writeShellApplication { inherit name runtimeInputs text; });
+            };
+        in
+        rec {
+          default = dev;
+
+          dev = mkApp {
+            name = "dev";
+            runtimeInputs = [ cv.typst-wrapped ];
             text = ''
-              mkdir -p template/gh-metadata
-              repos=(${builtins.concatStringsSep " " (map (r: "${r.owner}/${r.repo}") repos)})
-              for repo in "''${repos[@]}"; do
-                IFS=/ read -r owner name <<< "$repo"
-                curl -H "Accept: application/vnd.github+json" \
-                  "https://api.github.com/repos/$owner/$name" | \
-                  jq '.' > template/gh-metadata/"$owner""_""$name.json"
-              done
+              exec typst watch main.typ ${output}
             '';
           };
 
-        format-script = pkgs.writeShellApplication {
-          name = "format-script";
-          runtimeInputs = [ pkgs.typstyle ];
-          text = ''
-            typstyle -i ./**/*.typ
-          '';
-        };
-      in
-      {
-        checks = {
-          inherit build-drv build-script watch-script;
-        };
-
-        packages.default = build-drv;
-
-        apps = rec {
-          default = watch;
-          build = flake-utils.lib.mkApp { drv = build-script; };
-          watch = flake-utils.lib.mkApp { drv = watch-script; };
-          gen = flake-utils.lib.mkApp {
-            drv = gen-script {
-              repos = [
-                {
-                  owner = "wavecomtech";
-                  repo = "omlox-client-go";
-                }
-                {
-                  owner = "NixOS";
-                  repo = "nixpkgs";
-                }
-              ];
-            };
+          build = mkApp {
+            name = "build";
+            text = ''
+              install -m644 ${cv} ${output}
+            '';
           };
-          format = flake-utils.lib.mkApp { drv = format-script; };
-        };
 
-        devShells.default = typixLib.devShell {
-          inherit (commonArgs) fontPaths virtualPaths;
-          packages = [
-            # WARNING: Don't run `typst-build` directly, instead use `nix run .#build`
-            # See https://github.com/loqusion/typix/issues/2
-            # build-script
-            watch-script
+          gen = mkApp {
+            name = "gen";
+            runtimeInputs = [ pkgs.get-projects-metadata ];
+            text = ''
+              get-projects-metadata template/gh-metadata \
+                wavecomtech/omlox-client-go \
+                NixOS/nixpkgs
+            '';
+          };
+        }
+      );
 
-            pkgs.typstyle
-          ];
-        };
-      }
-    );
+      formatter = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgsFor.${system};
+        in
+        pkgs.nixfmt-tree.override {
+          runtimeInputs = [ pkgs.typstyle ];
+          settings.formatter.typstyle = {
+            command = "typstyle";
+            options = [ "-i" ];
+            includes = [ "*.typ" ];
+          };
+        }
+      );
+
+      devShells = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgsFor.${system};
+        in
+        {
+          default = pkgs.mkShellNoCC {
+            inputsFrom = [ pkgs.diogo-correia-cv ];
+            packages = [
+              pkgs.tinymist
+              pkgs.typstyle
+            ];
+          };
+        }
+      );
+    };
 }

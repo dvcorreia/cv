@@ -1,0 +1,4 @@
+[package]
+name = "font-awesome"
+version = "7.0.0"
+entrypoint = "lib.typ"

@@ -1,4 +1,7 @@
-#import "template/cv.typ": cv, experience, chronology, education, organization, github_card, tag, skill, hrule
+#import "template/cv.typ": (
+  chronology, cv, education, experience, github_card, hrule, organization,
+  skill, tag,
+)
 #import "template/lib.typ": *
 #import "alias.typ": *
 
@@ -34,7 +37,7 @@
 
     #let siemens-ai-post = link(
       "https://blog.siemens.com/2025/10/our-sovereign-ai-journey-building-a-self-contained-sustainable-and-cost-effective-llm-platform/",
-      "open weight AI models"
+      "open weight AI models",
     )
 
     - Work through incoming issues, contributing internally and upstream
@@ -156,8 +159,8 @@
     title: "Vice President",
     org: hardwarecity,
     period: (
-      start: datetime(day: 1, month: 10, year: 2023)
-    )
+      start: datetime(day: 1, month: 10, year: 2023),
+    ),
   )[
     Create an open and sustainable community around product development.
   ]

@@ -1,5 +1,4 @@
-# Files placed at build time
-vendor*
+# Build output
 *.pdf
 
 # Nix
