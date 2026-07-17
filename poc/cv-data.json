@@ -1,0 +1,44 @@
+{
+  "name": "Ada Lovelace",
+  "info": {
+    "email": "ada@example.com",
+    "phone": "+44 000000000",
+    "location": "London, UK",
+    "homepage": "ada.example.com",
+    "linkedin": "adalovelace",
+    "github": "adalovelace"
+  },
+  "experience": [
+    {
+      "title": "Analytical Engine Programmer",
+      "company": "Analytical Society",
+      "start": "1843-01-01",
+      "end": "present",
+      "location": "London, UK",
+      "desc": "Wrote the first algorithm intended to be carried out by a machine.",
+      "tags": ["Algorithms", "Mathematics", "Computing"]
+    },
+    {
+      "title": "Mathematics Tutor",
+      "company": "Self-employed",
+      "start": "1840-06-01",
+      "end": "1842-12-01",
+      "location": "London, UK",
+      "desc": "Tutored students in advanced mathematics.",
+      "tags": ["Mathematics"]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Private tuition in Mathematics",
+      "institution": "University of London",
+      "period": "1832 - 1840",
+      "desc": "Studied mathematics and science under Augustus De Morgan."
+    }
+  ],
+  "skills": ["Algorithms", "Mathematics", "Analytical Engine", "Logic"],
+  "languages": [
+    { "name": "English (Native)", "rating": 5 },
+    { "name": "French (Fluent)", "rating": 4 }
+  ]
+}

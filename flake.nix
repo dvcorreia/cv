@@ -102,6 +102,36 @@
                 NixOS/nixpkgs
             '';
           };
+
+          # POC: render the data-driven CV from a JSON file via the CLI.
+          poc-render = mkApp {
+            name = "poc-render";
+            runtimeInputs = [ cv.typst-wrapped ];
+            text = ''
+              typst compile --root . \
+                --input data=/poc/cv-data.json \
+                poc/render.typ "''${1:-poc-cv.pdf}"
+            '';
+          };
+
+          # POC: web form -> FastAPI -> typst compile -> PDF.
+          poc-server =
+            let
+              python = pkgs.python3.withPackages (ps: [
+                ps.fastapi
+                ps.uvicorn
+              ]);
+            in
+            mkApp {
+              name = "poc-server";
+              runtimeInputs = [ cv.typst-wrapped ];
+              text = ''
+                TYPST_BIN="$(command -v typst)"
+                export TYPST_BIN
+                export CV_ROOT="''${CV_ROOT:-$PWD}"
+                exec ${python}/bin/python "$CV_ROOT/poc/server.py"
+              '';
+            };
         }
       );
 

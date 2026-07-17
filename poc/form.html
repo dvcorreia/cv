@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CV Builder POC</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; }
+    fieldset { margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 6px; }
+    legend { font-weight: 600; }
+    label { display: block; margin: 0.4rem 0 0.1rem; font-size: 0.9rem; }
+    input, textarea { width: 100%; box-sizing: border-box; padding: 0.4rem; }
+    .row { display: flex; gap: 0.5rem; }
+    .row > div { flex: 1; }
+    .exp { border: 1px dashed #bbb; padding: 0.5rem; margin-bottom: 0.5rem; border-radius: 6px; }
+    button { padding: 0.5rem 1rem; margin-top: 0.5rem; cursor: pointer; }
+    small { color: #666; }
+  </style>
+</head>
+<body>
+  <h1>CV Builder POC</h1>
+  <p><small>Proof of concept. Fill in, submit, get a rendered PDF.</small></p>
+
+  <form id="cv-form">
+    <fieldset>
+      <legend>Personal</legend>
+      <label>Name</label>
+      <input name="name" value="Ada Lovelace" required />
+      <div class="row">
+        <div><label>Email</label><input name="email" value="ada@example.com" /></div>
+        <div><label>Phone</label><input name="phone" value="+44 000000000" /></div>
+      </div>
+      <div class="row">
+        <div><label>Location</label><input name="location" value="London, UK" /></div>
+        <div><label>Homepage</label><input name="homepage" value="ada.example.com" /></div>
+      </div>
+      <div class="row">
+        <div><label>LinkedIn</label><input name="linkedin" value="adalovelace" /></div>
+        <div><label>GitHub</label><input name="github" value="adalovelace" /></div>
+      </div>
+    </fieldset>
+
+    <fieldset id="experiences">
+      <legend>Experience</legend>
+      <div class="exp">
+        <label>Title</label><input class="e-title" value="Analytical Engine Programmer" />
+        <label>Company</label><input class="e-company" value="Analytical Society" />
+        <div class="row">
+          <div><label>Start (YYYY-MM-DD)</label><input class="e-start" value="1843-01-01" /></div>
+          <div><label>End (YYYY-MM-DD or 'present')</label><input class="e-end" value="present" /></div>
+        </div>
+        <label>Location</label><input class="e-location" value="London, UK" />
+        <label>Description</label><textarea class="e-desc" rows="2">Wrote the first algorithm intended to be carried out by a machine.</textarea>
+        <label>Tags (comma separated)</label><input class="e-tags" value="Algorithms, Mathematics, Computing" />
+      </div>
+      <button type="button" onclick="addExp()">+ Add experience</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>Skills</legend>
+      <label>Skills (comma separated)</label>
+      <input name="skills" value="Algorithms, Mathematics, Logic" />
+    </fieldset>
+
+    <button type="submit">Render PDF</button>
+  </form>
+
+  <script>
+    function addExp() {
+      const wrap = document.querySelector('#experiences .exp').cloneNode(true);
+      wrap.querySelectorAll('input, textarea').forEach(el => el.value = '');
+      document.querySelector('#experiences button').before(wrap);
+    }
+
+    document.getElementById('cv-form').addEventListener('submit', async (ev) => {
+      ev.preventDefault();
+      const f = ev.target;
+      const experience = [...document.querySelectorAll('#experiences .exp')].map(exp => ({
+        title: exp.querySelector('.e-title').value,
+        company: exp.querySelector('.e-company').value,
+        start: exp.querySelector('.e-start').value,
+        end: exp.querySelector('.e-end').value,
+        location: exp.querySelector('.e-location').value,
+        desc: exp.querySelector('.e-desc').value,
+        tags: exp.querySelector('.e-tags').value.split(',').map(s => s.trim()).filter(Boolean),
+      })).filter(e => e.title);
+
+      const payload = {
+        name: f.name.value,
+        info: {
+          email: f.email.value, phone: f.phone.value, location: f.location.value,
+          homepage: f.homepage.value, linkedin: f.linkedin.value, github: f.github.value,
+        },
+        experience,
+        education: [],
+        skills: f.skills.value.split(',').map(s => s.trim()).filter(Boolean),
+        languages: [],
+      };
+
+      const res = await fetch('/render', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) { alert('Render failed: ' + await res.text()); return; }
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      window.open(url, '_blank');
+    });
+  </script>
+</body>
+</html>
