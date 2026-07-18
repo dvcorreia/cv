@@ -1,5 +1,6 @@
 #import "template/cv.typ": (
-  cv, education, experience, github_card, hrule, organization, skill, tag,
+  cv, education, experience, experience-compact, github_card, hrule,
+  organization, skill, small-tag, tag,
 )
 #import "template/lib.typ": *
 #import "alias.typ": *
@@ -66,7 +67,7 @@
 
   #hrule()
 
-  #experience(
+  #experience-compact(
     title: "Product Technical Lead",
     company: wavecom,
     period: (
@@ -80,12 +81,12 @@
     - Ensured cohesion and quality over the lifecycle of the product and infused engineering best practices throughout the team
     - Worked in the #rtls standardization effort with the #omlox consortium, part of the #profibus
 
-    #tag(go) #tag(typescript) #tag(reactjs) #tag(k8s)
+    #small-tag(go) #small-tag(typescript) #small-tag(reactjs) #small-tag(k8s)
   ]
 
   #v(space.med)
 
-  #experience(
+  #experience-compact(
     title: "Software Engineer",
     company: wavecom,
     period: (
@@ -98,7 +99,7 @@
 
     - Transformed a prototype into a production platform handling thousands of #ble and #uwb devices
 
-    #tag(go) #tag(python) #tag(java) #tag(k8s)
+    #small-tag(go) #small-tag(python) #small-tag(java) #small-tag(k8s)
   ]
 
 ][

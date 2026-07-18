@@ -163,6 +163,26 @@
   #desc
 ]
 
+#let experience-compact(
+  title: [],
+  company: none,
+  period: (
+    start: none,
+    end: datetime.today(),
+  ),
+  location: "",
+  desc,
+) = [
+  #set text(size: text_10.normal, weight: "extrabold")
+  #title
+  #set text(size: text_10.normal, weight: "extrabold")
+  #if company != none [@ #company]
+  #set text(size: text_10.small, weight: "regular")
+  #h(1fr)
+  #icon("calendar", height: 8pt, shift: 0.7pt) #_term(..period, short: true) \
+  #desc
+]
+
 #let education(degree: [], institution: [], period: "", desc) = [
   ==== #degree \
   #set text(size: text_10.small)
