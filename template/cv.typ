@@ -207,6 +207,23 @@
   )
 }
 
+#let small-tag(skill) = {
+  box(
+    stroke: none,
+    inset: (right: 0.15em, y: 0.2em),
+    box(
+      inset: (x: 0.4em),
+      outset: (y: 0.3em),
+      stroke: (
+        thickness: 0.3pt,
+        paint: colors.gray_500,
+      ),
+      radius: 2.5pt,
+      text(size: text_10.footnotesize, skill),
+    ),
+  )
+}
+
 #let format_number(num) = {
   let suffixes = ("", "k", "M", "B", "T")
   let tier = calc.floor(calc.log(num, base: 1000))
