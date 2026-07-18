@@ -85,15 +85,6 @@
   }
 }
 
-#let chronology(
-  company: none,
-  employment_type: "Full-time",
-  duration: "",
-  ..experiences,
-) = {
-  experiences.pos().join(v(space.med))
-}
-
 #let _duration_to_text(duration) = {
   let total_days = duration.days()
 

@@ -1,5 +1,5 @@
 #import "template/cv.typ": (
-  chronology, cv, education, experience, github_card, hrule, organization,
+  cv, education, experience, github_card, hrule, organization,
   skill, tag,
 )
 #import "template/lib.typ": *
@@ -67,43 +67,41 @@
 
   #hrule()
 
-  #chronology(
+  #experience(
+    title: "Product Technical Lead",
     company: wavecom,
-    duration: "3yrs 3mos",
+    period: (
+      start: datetime(day: 1, month: 12, year: 2022),
+      end: datetime(day: 1, month: 6, year: 2024),
+    ),
+    location: "Aveiro, Portugal",
   )[
-    #experience(
-      title: "Product Technical Lead",
-      company: wavecom,
-      period: (
-        start: datetime(day: 1, month: 12, year: 2022),
-        end: datetime(day: 1, month: 6, year: 2024),
-      ),
-      location: "Aveiro, Portugal",
-    )[
-      Oversaw the technical direction for the real-time location systems (#rtls) and #uhf #rfid products.
+    Oversaw the technical direction for the real-time location systems (#rtls) and #uhf #rfid products.
 
-      - Ensured cohesion and quality over the lifecycle of the product and infused engineering best practices throughout the team
-      - Worked in the #rtls standardization effort with the #omlox consortium, part of the #profibus
+    - Ensured cohesion and quality over the lifecycle of the product and infused engineering best practices throughout the team
+    - Worked in the #rtls standardization effort with the #omlox consortium, part of the #profibus
 
-      #tag(go) #tag(typescript) #tag(reactjs) #tag(k8s)
-    ]
-  ][
-    #experience(
-      title: "Software Engineer",
-      company: wavecom,
-      period: (
-        start: datetime(day: 1, month: 4, year: 2021),
-        end: datetime(day: 1, month: 12, year: 2022),
-      ),
-      location: "Aveiro, Portugal",
-    )[
-      Worked on real-time location systems (#rtls) and ultra-high frequency radio identification (#uhf #rfid) products for industry and healthcare.
-
-      - Transformed a prototype into a production platform handling thousands of #ble and #uwb devices
-
-      #tag(go) #tag(python) #tag(java) #tag(k8s)
-    ]
+    #tag(go) #tag(typescript) #tag(reactjs) #tag(k8s)
   ]
+
+  #v(space.med)
+
+  #experience(
+    title: "Software Engineer",
+    company: wavecom,
+    period: (
+      start: datetime(day: 1, month: 4, year: 2021),
+      end: datetime(day: 1, month: 12, year: 2022),
+    ),
+    location: "Aveiro, Portugal",
+  )[
+    Worked on real-time location systems (#rtls) and ultra-high frequency radio identification (#uhf #rfid) products for industry and healthcare.
+
+    - Transformed a prototype into a production platform handling thousands of #ble and #uwb devices
+
+    #tag(go) #tag(python) #tag(java) #tag(k8s)
+  ]
+
 ][
   == Education
 
