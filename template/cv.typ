@@ -70,7 +70,20 @@
   )
 }
 
-#let hrule = line(length: 100%, stroke: (dash: "dashed", thickness: 0.6pt))
+#let hrule(body: none) = {
+  if body == none {
+    line(length: 100%, stroke: (dash: "dashed", thickness: 0.6pt))
+  } else {
+    grid(
+      columns: (1fr, auto, 1fr),
+      column-gutter: 0.5em,
+      align: center + horizon,
+      line(length: 100%, stroke: (dash: "dashed", thickness: 0.6pt)),
+      body,
+      line(length: 100%, stroke: (dash: "dashed", thickness: 0.6pt)),
+    )
+  }
+}
 
 #let chronology(
   company: none,

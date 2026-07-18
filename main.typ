@@ -47,7 +47,7 @@
 
   #tag(python) #tag(django) #tag(go) #tag(terraform) #tag(typescript)
 
-  #hrule
+  #hrule()
 
   #experience(
     title: "Software Engineer",
@@ -65,7 +65,7 @@
     #tag(python) #tag(django) #tag(typescript) #tag(reactjs)
   ]
 
-  #hrule
+  #hrule()
 
   #chronology(
     company: wavecom,
@@ -134,7 +134,7 @@
   #tag(nix)
   #tag(wasm)
 
-  #hrule
+  #hrule()
 
   #tag(k8s)
   #tag[#docker / #podman]
@@ -145,7 +145,7 @@
   == Projects
 
   #github_card("wavecomtech", "omlox-client-go")
-  #hrule
+  #hrule()
   #github_card("NixOS", "nixpkgs", desc: "Package maintainer")
 
   == Languages
