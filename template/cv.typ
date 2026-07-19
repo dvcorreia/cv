@@ -86,7 +86,7 @@
 }
 
 #let _duration_to_text(duration) = {
-  let total_days = duration.days()
+  let total_days = calc.abs(duration.days())
 
   let approx_years = total_days / 365.25
   let years = calc.floor(approx_years)
@@ -135,7 +135,7 @@
     } else {
       datetime.display(end, format)
     }
-    if short == false {
+    if short == false and end != datetime.today() {
       text[ · _(#_duration_to_text(end - start))_]
     }
   }

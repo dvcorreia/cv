@@ -1,6 +1,5 @@
 #import "template/cv.typ": (
-  cv, education, experience, github_card, hrule, organization,
-  skill, tag,
+  cv, education, experience, github_card, hrule, organization, skill, tag,
 )
 #import "template/lib.typ": *
 #import "alias.typ": *
