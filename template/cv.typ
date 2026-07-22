@@ -1,7 +1,12 @@
 #import "lib.typ": *
 
-#let main_font = "Roboto Slab"
-#let sans_font = "Lato"
+#let fonts = (
+  name: "Roboto Slab",
+  heading: "Roboto Slab",
+  title: "Roboto Slab",
+  company: "Lato",
+  body: "Lato",
+)
 
 #let _info(
   display,
@@ -152,7 +157,7 @@
   desc,
 ) = [
   === #title \
-  #if company != none [#company \ ]
+  #if company != none [#text(font: fonts.company)[#company] \ ]
   #text(size: text_10.small)[
     #icon("calendar")
     #_term(..period)
@@ -166,7 +171,7 @@
 #let education(degree: [], institution: [], period: "", desc) = [
   ==== #degree \
   #set text(size: text_10.small)
-  #icon("building-columns") #institution
+  #text(font: fonts.company)[#icon("building-columns") #institution]
   #h(1fr)
   #icon("calendar") #period
 
@@ -184,7 +189,7 @@
 ) = [
   === #title \
   #set text(size: text_10.small)
-  #icon("people-group") #org
+  #text(font: fonts.company)[#icon("people-group") #org]
   #h(1fr)
   #_term(..period, short: true) \
   #desc
@@ -321,12 +326,12 @@
   ),
   doc,
 ) = {
-  set text(text_10.normal, font: sans_font)
+  set text(text_10.normal, font: fonts.body)
   set page(margin: (x: 1.25cm, y: 1.5cm))
 
   show heading.where(level: 2): it => text(
     size: text_10.LARGE,
-    font: main_font,
+    font: fonts.heading,
   )[
     #upper(it.body)
     #v(-15pt)
@@ -335,7 +340,7 @@
 
   show heading.where(level: 3): it => text(
     size: text_10.large,
-    font: main_font,
+    font: fonts.title,
     it.body,
   )
 
@@ -344,7 +349,7 @@
     stroke: none,
     inset: 0pt,
     {
-      text(text_10.Huge, font: main_font)[
+      text(text_10.Huge, font: fonts.name)[
         #upper[#strong(name)]
       ]
       block(spacing: 1.8em, _personal_info(..info))

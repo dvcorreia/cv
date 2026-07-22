@@ -15,7 +15,7 @@ buildTypstDocument {
   typstEnv = _: [ font-awesome-typst ];
 
   fonts = [
-    roboto-slab
     lato
+    roboto-slab
   ];
 }
