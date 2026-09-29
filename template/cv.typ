@@ -1,8 +1,8 @@
 #import "lib.typ": *
 
 #let fonts = (
-  name: "Roboto Slab",
-  heading: "Roboto Slab",
+  name: "Creepster",
+  heading: "Creepster",
   title: "Roboto Slab",
   company: "Lato",
   body: "Lato",
@@ -349,7 +349,7 @@
     stroke: none,
     inset: 0pt,
     {
-      text(text_10.Huge, font: fonts.name)[
+      text(text_10.Huge * 1.8, font: fonts.name)[
         #upper[#strong(name)]
       ]
       block(spacing: 1.8em, _personal_info(..info))

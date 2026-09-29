@@ -1,6 +1,6 @@
 {
   lato,
-  roboto-slab,
+  google-fonts,
   buildTypstDocument,
   font-awesome-typst,
 }:
@@ -16,6 +16,6 @@ buildTypstDocument {
 
   fonts = [
     lato
-    roboto-slab
+    google-fonts
   ];
 }
