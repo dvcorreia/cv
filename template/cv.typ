@@ -69,7 +69,7 @@
   box(
     clip: true,
     radius: 50%,
-    height: 2.8cm,
+    height: 3.0cm, // previous 2.8cm
     width: auto,
     photo,
   )
@@ -338,23 +338,25 @@
 
   show heading.where(level: 3): it => text(..fonts.title, it.body)
 
-  table(
-    columns: (80%, 20%),
-    stroke: none,
-    inset: 0pt,
-    {
-      text(..fonts.name)[
-        #upper(name)
-      ]
-      block(spacing: 1.8em, _personal_info(..info))
-      v(space.big)
-    },
-    {
-      if photo != none {
-        align(right, _profile_photo(photo))
-      }
-    },
-  )
+  let header = {
+    text(..fonts.name)[
+      #upper(name)
+    ]
+    block(spacing: 1.8em, _personal_info(..info))
+    v(space.big)
+  }
+
+  if photo == none {
+    align(center, header)
+  } else {
+    table(
+      columns: (80%, 20%),
+      stroke: none,
+      inset: 0pt,
+      header,
+      align(right, _profile_photo(photo)),
+    )
+  }
 
   doc
 }
