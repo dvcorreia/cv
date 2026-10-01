@@ -145,8 +145,8 @@
   #tag(helm)
   #tag(postgres)
   #tag(terraform)
-  #tag[GitLab CI/CD]
-  #tag[Envoy]
+  #tag(gitlab-ci-cd)
+  #tag(envoy)
 
   == Projects
 

@@ -57,6 +57,8 @@
 #let postgres = sub("PostgreSQL", href: "postgresql.org")
 #let terraform = sub("Terraform", href: "developer.hashicorp.com/terraform")
 #let ansible = sub("Ansible", href: "github.com/ansible/ansible")
+#let gitlab-ci-cd = sub("GitLab CI/CD", href: "docs.gitlab.com/ci")
+#let envoy = sub("Envoy", href: "envoyproxy.io")
 
 // companies
 #let wavecom = sub("Wavecom Technologies", href: "wavecom.com")
