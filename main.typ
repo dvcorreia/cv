@@ -75,10 +75,12 @@
     ),
     location: "Aveiro, Portugal",
   )[
-    Oversaw the technical direction for the real-time location systems (#rtls) and #uhf #rfid products.
+    Led the technical design and hands-on development of the #rtls and #uhf #rfid products. Ensured quality and cohesion throughout development, promoting engineering best practices across the team. Contributed to standardization efforts through the #omlox consortium.
 
-    - Ensured cohesion and quality over the lifecycle of the product and infused engineering best practices throughout the team
-    - Worked in the #rtls standardization effort with the #omlox consortium, part of the #profibus
+    // Shaped the technical direction of the #rtls and #uhf #rfid products as their lead engineer.
+
+    // - Ensured cohesion and quality over the lifecycle of the product and infused engineering best practices throughout the team
+    // - Worked in the #rtls standardization effort in the #omlox consortium
 
     #tag(go) #tag(typescript) #tag(reactjs) #tag(k8s)
   ]
@@ -94,9 +96,8 @@
     ),
     location: "Aveiro, Portugal",
   )[
-    Worked on real-time location systems (#rtls) and ultra-high frequency radio identification (#uhf #rfid) products for industry and healthcare.
 
-    - Transformed a prototype into a production platform handling thousands of #ble and #uwb devices
+    Built the software powering one of Europe’s largest RTLS deployments at the time, delivered by the team for Continental AG and handling over 7,500 position updates per second.
 
     #tag(go) #tag(python) #tag(java) #tag(k8s)
   ]

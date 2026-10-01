@@ -62,8 +62,6 @@
           pkgs = nixpkgsFor.${system};
           cv = pkgs.diogo-correia-cv;
 
-          output = "diogo-correia-cv.pdf";
-
           mkApp =
             {
               name,
@@ -82,14 +80,14 @@
             name = "dev";
             runtimeInputs = [ cv.typst-wrapped ];
             text = ''
-              exec typst watch main.typ ${output}
+              exec typst watch main.typ main.pdf
             '';
           };
 
           build = mkApp {
             name = "build";
             text = ''
-              install -m644 ${cv} ${output}
+              install -m644 ${cv} diogo-correia-cv.pdf
             '';
           };
 
