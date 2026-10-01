@@ -39,14 +39,14 @@
 
     #let siemens-ai-post = link(
       "https://blog.siemens.com/2025/10/our-sovereign-ai-journey-building-a-self-contained-sustainable-and-cost-effective-llm-platform/",
-      "open weight AI models",
+      "open-weight AI models",
     )
 
-    - Work through incoming issues, contributing internally and upstream
+    - Work through incoming issues and contribute internally and upstream
     - Host #gitlabce and #siemens-ai-post for everyone at #siemens
     - Help people across Siemens access identity data and automate security risk detection
     - Improve Kubernetes infrastructure supporting internal services
-    - Drive upstream-first mindset and open source work practices
+    - Foster an upstream-first mindset and open-source work practices
   ]
 
   #tag(python) #tag(django) #tag(go) #tag(terraform) #tag(k8s) #tag(ansible)
@@ -65,7 +65,7 @@
   )[
     Worked on neuroscience applications for research institutes and companies across the life sciences.
 
-    - Maintained #neuroglass and codebases like #ohif, Google's #neuroglancer and #nvidia's #monailabel server
+    - Maintained #neuroglass and codebases such as #ohif, Google's #neuroglancer, and #nvidia's #monailabel server
 
     #tag(python) #tag(django) #tag(typescript) #tag(reactjs)
   ]
