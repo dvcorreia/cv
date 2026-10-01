@@ -187,7 +187,7 @@
   ),
   desc,
 ) = [
-  === #title \
+  ==== #title \
   #set text(size: text_10.small)
   #text(font: fonts.company)[#icon("people-group") #org]
   #h(1fr)
