@@ -32,7 +32,9 @@
     ),
     location: "Remote to Zug, Switzerland",
   )[
-    Part of the #code-siemens team, contributing across multiple projects in what the Siemens developers need and find important.
+    Part of the #code-siemens team, building and operating developer platforms shaped by Siemens developers’ needs and feedback.
+
+    // Part of the #code-siemens team, contributing across multiple projects in what the Siemens developers need and find important.
 
     #let siemens-ai-post = link(
       "https://blog.siemens.com/2025/10/our-sovereign-ai-journey-building-a-self-contained-sustainable-and-cost-effective-llm-platform/",
@@ -41,10 +43,12 @@
 
     - Work through incoming issues, contributing internally and upstream
     - Host #gitlabce and #siemens-ai-post for everyone at #siemens
+    - Help people across Siemens access identity data and automate security risk detection
+    - Improve Kubernetes infrastructure supporting internal services
     - Drive upstream-first mindset and open source work practices
   ]
 
-  #tag(python) #tag(django) #tag(go) #tag(terraform) #tag(typescript)
+  #tag(python) #tag(django) #tag(go) #tag(terraform) #tag(k8s) #tag(ansible)
 
   #hrule()
 
@@ -135,10 +139,12 @@
   #hrule()
 
   #tag(k8s)
-  #tag[#docker / #podman]
+  #tag[#docker]
   #tag(helm)
   #tag(postgres)
   #tag(terraform)
+  #tag[GitLab CI/CD]
+  #tag[Envoy]
 
   == Projects
 
