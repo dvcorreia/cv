@@ -6,7 +6,7 @@
 
 #show: cv.with(
   name: "Diogo Vala Correia",
-  photo: image("photos/me3.jpg"),
+  photo: image("photos/me4.jpg"),
   info: (
     email: "dv_correia@hotmail.com",
     phone: "+351 915800676",
