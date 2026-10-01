@@ -154,6 +154,7 @@
     end: datetime.today(),
   ),
   location: "",
+  remote: false,
   desc,
 ) = [
   === #title \
@@ -162,7 +163,7 @@
     #icon("calendar")
     #_term(..period)
     #h(1fr)
-    #icon("location-pin") #location
+    #if remote [Remote #icon("link")#location] else [#icon("location-pin") #location]
   ]
 
   #desc

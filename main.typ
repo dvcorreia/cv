@@ -30,7 +30,8 @@
       start: datetime(day: 22, month: 5, year: 2025),
       end: datetime.today(),
     ),
-    location: "Remote to Zug, Switzerland",
+    location: "Zug, Switzerland",
+    remote: true,
   )[
     Part of the #code-siemens team, building and operating developer platforms shaped by Siemens developers’ needs and feedback.
 
@@ -59,7 +60,8 @@
       start: datetime(day: 1, month: 6, year: 2024),
       end: datetime(day: 23, month: 4, year: 2025),
     ),
-    location: "Remote to Cambridge, US",
+    location: "Cambridge, US",
+    remote: true,
   )[
     Worked on neuroscience applications for research institutes and companies across the life sciences.
 
