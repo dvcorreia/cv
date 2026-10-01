@@ -57,7 +57,7 @@
     ),
     location: "Remote to Cambridge, US",
   )[
-    Worked on neuroscience applications for medical research and pharmaceutical companies.
+    Worked on neuroscience applications for research institutes and companies across the life sciences.
 
     - Maintained #neuroglass and codebases like #ohif, Google's #neuroglancer and #nvidia's #monailabel server
 
