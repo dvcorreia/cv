@@ -1,11 +1,11 @@
 #import "lib.typ": *
 
 #let fonts = (
-  name: "Creepster",
-  heading: "Creepster",
-  title: "Roboto Slab",
-  company: "Lato",
-  body: "Lato",
+  name: (font: "Creepster", size: text_10.Huge * 1.8, weight: "bold"),
+  heading: (font: "Creepster", size: text_10.LARGE, weight: "regular"),
+  title: (font: "Roboto Slab", size: text_10.large, weight: "bold"),
+  company: (font: "Lato", size: 1em, weight: "regular"),
+  body: (font: "Lato", size: text_10.normal, weight: "regular"),
 )
 
 #let _info(
@@ -157,7 +157,7 @@
   desc,
 ) = [
   === #title \
-  #if company != none [#text(font: fonts.company)[#company] \ ]
+  #if company != none [#text(..fonts.company)[#company] \ ]
   #text(size: text_10.small)[
     #icon("calendar")
     #_term(..period)
@@ -171,7 +171,7 @@
 #let education(degree: [], institution: [], period: "", desc) = [
   ==== #degree \
   #set text(size: text_10.small)
-  #text(font: fonts.company)[#icon("building-columns") #institution]
+  #text(..fonts.company)[#icon("building-columns") #institution]
   #h(1fr)
   #icon("calendar") #period
 
@@ -189,7 +189,7 @@
 ) = [
   ==== #title \
   #set text(size: text_10.small)
-  #text(font: fonts.company)[#icon("people-group") #org]
+  #text(..fonts.company)[#icon("people-group") #org]
   #h(1fr)
   #_term(..period, short: true) \
   #desc
@@ -326,31 +326,24 @@
   ),
   doc,
 ) = {
-  set text(text_10.normal, font: fonts.body)
+  set text(..fonts.body)
   set page(margin: (x: 1.25cm, y: 1.5cm))
 
-  show heading.where(level: 2): it => text(
-    size: text_10.LARGE,
-    font: fonts.heading,
-  )[
+  show heading.where(level: 2): it => text(..fonts.heading)[
     #upper(it.body)
     #v(-15pt)
     #line(length: 100%, stroke: 2pt)
   ]
 
-  show heading.where(level: 3): it => text(
-    size: text_10.large,
-    font: fonts.title,
-    it.body,
-  )
+  show heading.where(level: 3): it => text(..fonts.title, it.body)
 
   table(
     columns: (80%, 20%),
     stroke: none,
     inset: 0pt,
     {
-      text(text_10.Huge * 1.8, font: fonts.name)[
-        #upper[#strong(name)]
+      text(..fonts.name)[
+        #upper(name)
       ]
       block(spacing: 1.8em, _personal_info(..info))
       v(space.big)
